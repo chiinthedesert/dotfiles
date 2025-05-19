@@ -1,0 +1,7 @@
+mode=drun
+allow_images=true
+image_size=34
+prompt=What are you looking for?
+
+width=40%
+height=30%

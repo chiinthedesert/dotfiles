@@ -1,0 +1,17 @@
+{
+  "notification-history-limit": 100,
+  "notification-visibility": {
+    "history": true,
+    "dnd": true
+  },
+  "widgets": {
+    "notifications": {
+      "grouping": "app-name"
+    }
+  },
+  "position": "top-right",
+  "layer": "overlay",
+  "anchor": "top right",
+  "timeout": 5000
+}
+
