@@ -1,7 +1,8 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "left", // Waybar position (top|bottom|left|right)
-    "width": 35, // Waybar width
+    //"width": 35, // Waybar width
+    "margin-right": 1,
     "spacing": 4, // Gaps between modules (4px)
     "output": "HDMI-A-1",
     "modules-left": [
@@ -33,6 +34,9 @@
              "urgent": "",
              "active": "◆",
              "default": "◇"
+         },
+         "persistent-workspaces": {
+             "*": [ 1,2,3,4,5 ]   
          }
     },
 
@@ -69,8 +73,9 @@
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon}\n{percent}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip-format": false
     },
 
 
