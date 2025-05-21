@@ -102,7 +102,7 @@ prompt_git_info() {
 
 prompt_purity_precmd() {
     # Pass a line before each prompt
-    print -P ''
+    #print -P ''
 }
 
 prompt_purification_setup() {
@@ -126,8 +126,8 @@ prompt_purification_setup() {
     ZSH_THEME_GIT_PROMPT_AHEAD="%B%F{green}%f%b "
 
     prompt_git_branch
-    RPROMPT='$(prompt_git_info) $(git_prompt_status)'
-    PROMPT=$'%F{white}%~ %B%F{blue}>%f%b '
+    RPROMPT='$(prompt_git_info)$(git_prompt_status)'
+    PROMPT=$' %F{white}%~ %B%F{blue}>%f%b '
 }
 
 prompt_purification_setup
