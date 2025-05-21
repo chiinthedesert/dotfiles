@@ -1,6 +1,6 @@
 # .zsh_plugins.txt
 #rupa/z              # some bash plugins work too
-#sindresorhus/pure   # enhance your prompt
+sindresorhus/pure   # enhance your prompt
 
 # you can even use Oh My Zsh plugins
 #getantidote/use-omz
@@ -9,5 +9,9 @@
 
 # add fish-like features
 zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
+
+MichaelAquilina/zsh-you-should-use
+Aloxaf/fzf-tab

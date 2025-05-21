@@ -16,5 +16,16 @@ alias grs='git remote show'
 alias glo='git log --pretty="oneline"'
 alias glol='git log --graph --oneline --decorate'
 
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias la='ls -a'
 
-alias ls='ls -a'
+alias c='clear'
+
+# Alias rm to move to trash using trash-cli
+alias rm='echo "this is not the command you are looking for"; false'
+alias tr='trash-put'
+# Optional: Add aliases for other trash-cli commands for convenience
+alias trl='trash --list'     # List trash contents
+alias trr='trash --restore'  # Restore files from trash
+alias tre='trash --empty'    # Empty the trash
