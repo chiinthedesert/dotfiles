@@ -12,22 +12,9 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # custom the prompt
-# Enable prompt substitution
-setopt prompt_subst
-
-# Load git branch info
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-# Git branch display format
-zstyle ':vcs_info:git:*' formats ' %b'
-
-# Left prompt: just the current directory
-PROMPT=' %~ %# '
-
-# Right prompt: Git branch info (right-aligned)
-RPROMPT='${vcs_info_msg_0_}'
-
+fpath=($ZDOTDIR/prompt $fpath)
+autoload -Uz prompt_purification_setup; prompt_purification_setup
+  
 # source aliases file
 source $ZDOTDIR/aliases
 

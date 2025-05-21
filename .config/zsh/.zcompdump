@@ -1,4 +1,4 @@
-#files: 945	version: 5.9
+#files: 965	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -1678,6 +1678,10 @@ bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
 autoload -Uz _antidote __antidote_bulk_clone __antidote_bundle_dir __antidote_bundle_name __antidote_bundle_type \
+            __antidote_bundle_zcompile __antidote_collect_input __antidote_del __antidote_get_cachedir __antidote_indent \
+            __antidote_initfiles __antidote_load_prep __antidote_mktemp __antidote_parse_bundles __antidote_parser \
+            __antidote_print_path __antidote_setup __antidote_tourl __antidote_usage __antidote_version \
+            _antidote __antidote_bulk_clone __antidote_bundle_dir __antidote_bundle_name __antidote_bundle_type \
             __antidote_bundle_zcompile __antidote_collect_input __antidote_del __antidote_get_cachedir __antidote_indent \
             __antidote_initfiles __antidote_load_prep __antidote_mktemp __antidote_parse_bundles __antidote_parser \
             __antidote_print_path __antidote_setup __antidote_tourl __antidote_usage __antidote_version \
