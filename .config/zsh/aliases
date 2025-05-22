@@ -26,6 +26,6 @@ alias c='clear'
 alias rm='echo "this is not the command you are looking for"; false'
 alias tr='trash-put'
 # Optional: Add aliases for other trash-cli commands for convenience
-alias trl='trash --list'     # List trash contents
-alias trr='trash --restore'  # Restore files from trash
-alias tre='trash --empty'    # Empty the trash
+alias trl='trash-list'     # List trash contents
+alias trr='trash-restore'  # Restore files from trash
+alias tre='trash-empty'    # Empty the trash
