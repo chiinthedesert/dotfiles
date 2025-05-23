@@ -53,12 +53,12 @@
 
 
     "cpu": {
-        "format": "\n{usage}"
+        "format": "cp\n{usage}"
     },
 
 
     "memory": {
-        "format": "\n{}"
+        "format": "me\n{}"
     },
 
 
@@ -73,7 +73,7 @@
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon}\n{percent}",
+        "format": "br\n{percent}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "tooltip-format": false
     },
@@ -98,7 +98,7 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "\n{signalStrength}",
+        "format-wifi": "wi\n{signalStrength}",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{essid} ({signalStrength}%)",
         "format-linked": "{ifname} (No IP) ",
@@ -108,10 +108,10 @@
 
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}\n{volume}",
+        "format": "vo\n{volume}",
         "format-bluetooth": "{volume} {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " ",
+        "format-muted": "m",
         "format-source": "\n{volume} ",
         "format-source-muted": "",
         "format-icons": {
