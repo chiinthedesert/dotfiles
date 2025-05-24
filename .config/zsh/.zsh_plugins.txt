@@ -42,3 +42,4 @@ zsh-users/zsh-history-substring-search
 
 Aloxaf/fzf-tab
 MichaelAquilina/zsh-you-should-use
+Tarrasch/zsh-bd

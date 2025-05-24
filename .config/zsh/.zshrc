@@ -9,14 +9,18 @@ source $ZDOTDIR/.antidote/antidote.zsh
 antidote load
 
 # ──[ SHELL OPTIONS ]─────────────────────────────────────────────────────
-HISTFILE=~/.config/zsh/.histfile
+HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=10000
 SAVEHIST=40000
 HISTDUP=erase
 setopt appendhistory sharehistory
-setopt hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_ignore_dups hist_find_no_dups
+setopt hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_find_no_dups
 setopt autocd extendedglob nomatch
 unsetopt beep
+
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 
 # ──[ COMPLETION SYSTEM ]─────────────────────────────────────────────────
@@ -32,6 +36,7 @@ zstyle ':completion:*' cache-path ~/.cache/zsh/completions
 
 # ──[ KEYBINDINGS ]───────────────────────────────────────────────────────
 bindkey -v
+export KEYTIMEOUT=1
 bindkey '^k' history-substring-search-up
 bindkey '^j' history-substring-search-down
 
@@ -41,6 +46,8 @@ prompt pure
 
 # shell integrations
 eval "$(fzf --zsh)"
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 
 # ──[ ALIASES ]───────────────────────────────────────────────────────────
