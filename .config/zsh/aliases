@@ -20,8 +20,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias la='ls -a'
 
-alias c='clear'
-
 # Alias rm to move to trash using trash-cli
 alias rm='echo "this is not the command you are looking for"; false'
 alias tr='trash-put'
