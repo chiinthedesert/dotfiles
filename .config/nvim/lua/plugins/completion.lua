@@ -3,106 +3,110 @@ return {
   -- Snippet Engine: LuaSnip
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest major version found on <https://github.com/L3MON4D3/LuaSnip/releases>
-    -- build = "make install_jsregexp", -- For regular expression matching in snippets, if you need it, install with make
+    version = "v2.*", -- Pin to the latest v2 major release for stability
+    -- build = "make install_jsregexp", -- Uncomment if you need JS-like regex in snippets
     dependencies = {
-      -- Collection of snippets
-      "rafamadriz/friendly-snippets",
+      "rafamadriz/friendly-snippets", -- A collection of useful snippets
     },
     config = function()
-      -- Tell LuaSnip to load snippets from friendly-snippets
-      -- This line assumes friendly-snippets are in VSCode format.
+      -- Load snippets from friendly-snippets (VSCode format)
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      -- You can configure LuaSnip further here if needed, e.g., custom snippets:
-      -- require("luasnip").filetype_extend("markdown", {
-      --   require("luasnip.extras.markdown").markdown_converters()
-      -- })
-      -- require("luasnip").add_snippets("all", {
-      --   luasnip.parser.parse_snippet("test", "this is a test snippet"),
-      -- })
-
-      -- Optional: print a message to confirm LuaSnip loaded
-      -- print("LuaSnip and friendly-snippets configured!")
+      -- Example for adding custom snippets for a specific filetype:
+      -- require("luasnip").filetype_extend("lua", { paths = "~/.config/nvim/lua/custom_snippets/lua" })
     end,
-    -- LuaSnip doesn't need a specific event if nvim-cmp depends on it correctly
-    -- or if its functions are called by nvim-cmp.
-    -- We can also set it to load very lazily or on InsertEnter if preferred.
-    lazy = false, -- Let's make sure snippets are available early. Or use an event.
+    lazy = false, -- Load LuaSnip relatively early so snippets are available
   },
 
   -- Autocompletion Engine: nvim-cmp
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter", -- Load nvim-cmp when you enter insert mode
+    event = "InsertEnter", -- Load nvim-cmp when entering insert mode for efficiency
     dependencies = {
-      -- Sources for nvim-cmp:
-      "hrsh7th/cmp-buffer",   -- Completions from words in your current buffer
-      "hrsh7th/cmp-path",     -- Completions for file system paths
-      "saadparwaiz1/cmp_luasnip", -- Bridge for LuaSnip to work with nvim-cmp
+      -- Completion sources for nvim-cmp:
+      "hrsh7th/cmp-buffer",   -- Source for text from the current buffer
+      "hrsh7th/cmp-path",     -- Source for file system paths
+      "saadparwaiz1/cmp_luasnip", -- Source for snippets from LuaSnip
+      "hrsh7th/cmp-cmdline",  -- Source for command-line (:) and search (/) completions
 
-      -- We will add "hrsh7th/cmp-nvim-lsp" back here later when you want LSP completions
+      -- Source for LSP completions (uncomment when your LSP setup is ready)
+      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local cmp = require("cmp")
-      local luasnip = require("luasnip") -- Required for <Tab> and <S-Tab> snippet jumping
+      local luasnip = require("luasnip") -- Required for Tab/S-Tab snippet navigation
 
+      -- Setup nvim-cmp for INSERT MODE
       cmp.setup({
         snippet = {
-          -- REQUIRED for LuaSnip integration
+          -- Configure how nvim-cmp expands snippets
           expand = function(args)
-            luasnip.lsp_expand(args.body) -- Despite the name, this is the function LuaSnip provides for nvim-cmp
+            luasnip.lsp_expand(args.body) -- Use LuaSnip to expand snippets
           end,
         },
 
-        -- Key Mappings for the completion menu
+        -- Key mappings for the completion menu in insert mode
         mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4), -- Scroll documentation back
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),  -- Scroll documentation forward
-          ['<C-Space>'] = cmp.mapping.complete(),    -- Manually trigger completion
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4), -- Scroll documentation window up
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),  -- Scroll documentation window down
+          ['<C-Space>'] = cmp.mapping.complete(),    -- Manually trigger completion menu
           ['<C-e>'] = cmp.mapping.abort(),         -- Close completion menu
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirm selection (Enter key)
+          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirm selected completion
 
-          -- Tab completion and snippet navigation
+          -- Use Tab and Shift-Tab to navigate completion items and snippet placeholders
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              cmp.select_next_item() -- If completion menu is visible, select next item
+              cmp.select_next_item() -- Select next item in completion menu
             elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump() -- If in a snippet and can jump, jump forward
+              luasnip.expand_or_jump() -- Jump to next placeholder in an active snippet
             else
-              fallback() -- Otherwise, do the default Tab action
+              fallback() -- Default Tab behavior
             end
-          end, { "i", "s" }), -- "i" for insert mode, "s" for select mode (snippet active)
+          end, { "i", "s" }), -- "i" for insert mode, "s" for snippet select mode
 
           ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              cmp.select_prev_item() -- If completion menu is visible, select previous item
+              cmp.select_prev_item() -- Select previous item in completion menu
             elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1) -- If in a snippet and can jump, jump backward
+              luasnip.jump(-1) -- Jump to previous placeholder in an active snippet
             else
-              fallback() -- Otherwise, do the default Shift-Tab action
+              fallback() -- Default Shift-Tab behavior
             end
           end, { "i", "s" }),
         }),
 
-        -- Completion Sources (Order matters: higher in the list means higher priority)
+        -- Completion sources for INSERT MODE (order defines priority)
         sources = cmp.config.sources({
-          { name = "luasnip" }, -- Snippets (from LuaSnip)
-          { name = "buffer" },  -- Words from the current buffer
-          { name = "path" },    -- File system paths
-          -- { name = "nvim_lsp" }, -- We'll add this back when you set up LSP completions
+          { name = "luasnip" }, -- Suggest snippets
+          { name = "buffer" },  -- Suggest words from the current buffer
+          { name = "path" },    -- Suggest file system paths
+          -- { name = "nvim_lsp" }, -- Uncomment when LSP is configured and cmp-nvim-lsp is a dependency
         }),
 
-        -- Optional: You can customize the appearance of the completion window
+        -- Optional: Add borders to completion and documentation windows
         -- window = {
-        --   completion = cmp.config.window.bordered(),
-        --   documentation = cmp.config.window.bordered(),
+        --   completion = cmp.config.window.bordered({ border = "solid" }),
+        --   documentation = cmp.config.window.bordered({ border = "solid" }),
         -- },
       })
 
-      -- Optional: print a message to confirm nvim-cmp loaded
-      -- print("nvim-cmp (non-LSP setup) configured!")
+      -- Setup nvim-cmp for COMMAND-LINE MODE (after typing ':')
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(), -- Default keymappings for cmdline completion
+        sources = cmp.config.sources({
+          { name = "path" },     -- Suggest file system paths
+        }, {
+          { name = "cmdline" }, -- Suggest Ex commands and their arguments
+        })
+      })
+
+      -- Setup nvim-cmp for SEARCH MODE (after typing '/' or '?')
+      cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(), -- Default keymappings for cmdline completion
+        sources = {
+          { name = "buffer" }, -- Suggest words from the current buffer for search terms
+        }
+      })
     end,
   },
 }
