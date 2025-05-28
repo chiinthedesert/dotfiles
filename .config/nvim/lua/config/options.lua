@@ -10,6 +10,9 @@ opt.relativenumber = true  -- Show relative line numbers for easier vertical nav
 opt.cursorline = true    -- Highlight the current line
 opt.signcolumn = "yes"   -- Always show the signcolumn to prevent text jitter (reserves 1-2 columns)
 opt.wrap = false         -- Disable line wrapping (preferred for code)
+-- opt.wrap = true          -- Enable line wrapping
+-- opt.linebreak = true     -- Wrap lines at word boundaries (not in the middle of words)
+-- opt.showbreak = '↪ '     -- Optional: show a symbol at the start of wrapped lines
 
 -- Show invisible characters (tabs, trailing spaces, non-breaking spaces)
 opt.list = true
