@@ -73,6 +73,7 @@ button:hover {
     margin-bottom: 10px;
     background-color: black; 
 }
+#keyboard-state,
 #clock,
 #battery,
 #cpu,

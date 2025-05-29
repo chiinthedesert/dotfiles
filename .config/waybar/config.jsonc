@@ -21,30 +21,30 @@
         "temperature",
         "battery"
     ],
-  
+
 
 
     // Modules configuration
     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": true,
-         "warp-on-scroll": false,
-         "format":"{icon}",
-         "format-icons": {
-             "urgent": "",
-             "active": "◆",
-             "default": "◇"
-         },
-         "persistent-workspaces": {
-             "*": [ 1,2,3,4,5 ]   
-         }
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format":"{icon}",
+        "format-icons": {
+            "urgent": "",
+            "active": "◆",
+            "default": "◇"
+        },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5 ]   
+        }
     },
 
     "wlr/taskbar": {
         "format": "{icon}",
         "icon-size": 20
-     },
-    
+    },
+
 
     "clock": {
         "format": "{:%H\n%M}",
@@ -94,7 +94,7 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
- 
+
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface

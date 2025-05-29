@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/plugins/completion.lua
 return {
   -- Snippet Engine: LuaSnip
   {
@@ -30,7 +29,7 @@ return {
       "hrsh7th/cmp-cmdline",  -- Source for command-line (:) and search (/) completions
 
       -- Source for LSP completions (uncomment when your LSP setup is ready)
-      -- "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local cmp = require("cmp")
@@ -80,7 +79,7 @@ return {
           { name = "luasnip" }, -- Suggest snippets
           { name = "buffer" },  -- Suggest words from the current buffer
           { name = "path" },    -- Suggest file system paths
-          -- { name = "nvim_lsp" }, -- Uncomment when LSP is configured and cmp-nvim-lsp is a dependency
+          { name = "nvim_lsp" }, -- Uncomment when LSP is configured and cmp-nvim-lsp is a dependency
         }),
 
         -- Optional: Add borders to completion and documentation windows
