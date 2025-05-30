@@ -3,7 +3,7 @@ return {
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*", -- Pin to the latest v2 major release for stability
-    -- build = "make install_jsregexp", -- Uncomment if you need JS-like regex in snippets
+    build = "make install_jsregexp", -- Uncomment if you need JS-like regex in snippets
     dependencies = {
       "rafamadriz/friendly-snippets", -- A collection of useful snippets
     },
@@ -20,16 +20,14 @@ return {
   -- Autocompletion Engine: nvim-cmp
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter", -- Load nvim-cmp when entering insert mode for efficiency
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      -- Completion sources for nvim-cmp:
-      "hrsh7th/cmp-buffer",   -- Source for text from the current buffer
-      "hrsh7th/cmp-path",     -- Source for file system paths
-      "saadparwaiz1/cmp_luasnip", -- Source for snippets from LuaSnip
-      "hrsh7th/cmp-cmdline",  -- Source for command-line (:) and search (/) completions
-
       -- Source for LSP completions (uncomment when your LSP setup is ready)
       "hrsh7th/cmp-nvim-lsp",
+      "saadparwaiz1/cmp_luasnip", -- Source for snippets from LuaSnip
+      "hrsh7th/cmp-buffer",   -- Source for text from the current buffer
+      "hrsh7th/cmp-path",     -- Source for file system paths
+      "hrsh7th/cmp-cmdline",  -- Source for command-line (:) and search (/) completions
     },
     config = function()
       local cmp = require("cmp")
@@ -76,10 +74,10 @@ return {
 
         -- Completion sources for INSERT MODE (order defines priority)
         sources = cmp.config.sources({
+          { name = "nvim_lsp" }, -- Uncomment when LSP is configured and cmp-nvim-lsp is a dependency
           { name = "luasnip" }, -- Suggest snippets
           { name = "buffer" },  -- Suggest words from the current buffer
           { name = "path" },    -- Suggest file system paths
-          { name = "nvim_lsp" }, -- Uncomment when LSP is configured and cmp-nvim-lsp is a dependency
         }),
 
         -- Optional: Add borders to completion and documentation windows

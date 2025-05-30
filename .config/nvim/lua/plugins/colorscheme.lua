@@ -20,4 +20,10 @@ return {
       vim.cmd("colorscheme solarized-osaka")
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    priority = 1000,
+    opts = {},
+  },
 }
