@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-local base_map_opts = { noremap = true }
+local base_map_opts = { noremap = true, silent = true }
 
 -- Helper function to create final map options by merging base_map_opts
 -- with a description and any per-map specific options.

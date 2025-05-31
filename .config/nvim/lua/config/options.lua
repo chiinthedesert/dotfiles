@@ -90,6 +90,7 @@ opt.shortmess = opt.shortmess + "c" + "A" + "I" -- Add flags, 'I' to suppress in
 -- Global Variables
 g.loaded_netrw = 1       -- Disable the built-in Netrw file explorer
 g.loaded_netrwPlugin = 1 -- if you are using a plugin like neo-tree
+vim.g.netrw_browsex_viewer = "xdg-open"
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
