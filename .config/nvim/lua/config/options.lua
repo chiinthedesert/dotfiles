@@ -3,7 +3,7 @@
 local opt = vim.opt -- Local variable for conciseness
 local g = vim.g     -- Local variable for global settings
 
---  paroiAppearance
+--  Appearance
 opt.termguicolors = true  -- Enable 24-bit RGB colors, essential for modern themes
 opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Show relative line numbers for easier vertical navigation
@@ -32,6 +32,7 @@ opt.mouse = "a"               -- Enable mouse support in all modes (normal, visu
 opt.clipboard = "unnamedplus" -- Use the system clipboard for all yank/paste operations
 opt.hidden = true             -- Allow buffers to be hidden without saving (important for multi-file workflows)
 opt.confirm = true            -- Ask for confirmation for actions like :q on a modified buffer
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Text Editing & Indentation
 opt.tabstop = 2        -- Number of visual spaces per tab character
@@ -48,7 +49,7 @@ opt.showmode = false   -- Disable showing mode in command line (usually handled 
 -- Searching
 opt.ignorecase = true -- Ignore case when searching
 opt.smartcase = true  -- Override ignorecase if the search pattern contains uppercase letters
-opt.hlsearch = true   -- Highlight all search matches
+opt.hlsearch = false   -- Highlight all search matches
 opt.incsearch = true  -- Show search results incrementally as you type
 opt.gdefault = true   -- Make :s/.../.../ act like :s/.../.../g by default (for current line)
 

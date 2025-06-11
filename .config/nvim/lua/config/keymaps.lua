@@ -11,7 +11,7 @@ local function MOpts(description, per_map_specific_opts)
 end
 
 -- ; instead of :
-map("n", ";", ":", MOpts("Enter command"))
+map("n", ";", ":", MOpts("Enter command", {silent = false}))
 
 -- Keymap to copy current file's absolute path
 map("n", "<leader>cp", "<cmd>let @+ = expand('%:p')<CR>", MOpts("Copy absolute path"))
@@ -19,20 +19,16 @@ map("n", "<leader>cp", "<cmd>let @+ = expand('%:p')<CR>", MOpts("Copy absolute p
 -- Keymap to Yank (Copy) all lines in the current buffer to system clipboard
 map("n", "<leader>ya", "ggVGy", MOpts("Yank all"))
 
--- Windows shortcuts
-map("n", "<C-h>", "<C-w>h", MOpts("Navigate window left"))
-map("n", "<C-l>", "<C-w>l", MOpts("Navigate window right"))
-map("n", "<C-k>", "<C-w>k", MOpts("Navigate window up"))
-map("n", "<C-j>", "<C-w>j", MOpts("Navigate window down"))
+-- Panes shortcuts
 map("n", "<leader>\\", "<C-w>v", MOpts("Split window vertically"))
 map("n", "<leader>-", "<C-w>s", MOpts("Split window horizontally"))
 map("n", "<leader>x", "<cmd>close<CR>", MOpts("Close current window"))
 
 -- Buffer Navigation
-map("n", "<leader>bn", "<cmd>bnext<CR>", MOpts("Buffer: Next"))
-map("n", "<leader>bp", "<cmd>bprevious<CR>", MOpts("Buffer: Previous"))
+map("n", "<leader>n", "<cmd>bnext<CR>", MOpts("Buffer: Next"))
+map("n", "<leader>p", "<cmd>bprevious<CR>", MOpts("Buffer: Previous"))
 map("n", "<leader>bd", "<cmd>bdelete<CR>", MOpts("Buffer: Close current"))
-map("n", "<leader>bl", "<cmd>ls<CR>", MOpts("Buffer: List all"))
+-- map("n", "<leader>bl", "<cmd>ls<CR>", MOpts("Buffer: List all"))
 map("n", "<leader>bo", function()
   local current_win = vim.api.nvim_get_current_win()
   local windows = vim.api.nvim_tabpage_list_wins(0)

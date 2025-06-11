@@ -1,12 +1,5 @@
-# .zsh_plugins.txt - comments begin with "#"
-
 # Basic Zsh plugins are defined in user/repo format
 jeffreytse/zsh-vi-mode
-
-# Bash plugins may also work
-# rupa/z
-
-# empty lines are skipped
 
 # annotations are also allowed:
 romkatv/zsh-bench kind:path

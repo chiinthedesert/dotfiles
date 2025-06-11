@@ -34,20 +34,27 @@ zstyle ':completion:*' menu no
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh/completions
 
-# ──[ KEYBINDINGS ]───────────────────────────────────────────────────────
-bindkey -v
-export KEYTIMEOUT=1
-bindkey '^k' history-substring-search-up
-bindkey '^j' history-substring-search-down
-
 # ──[ PROMPT ]────────────────────────────────────────────────────────────
 autoload -Uz promptinit; promptinit
 prompt pure
 
 # shell integrations
+eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
+# ──[ KEYBINDINGS ]───────────────────────────────────────────────────────
+bindkey -v
+export KEYTIMEOUT=1
+bindkey -M vicmd 'K' history-substring-search-up
+bindkey -M vicmd 'J' history-substring-search-down
+bindkey -M viins 'K' history-substring-search-up
+bindkey -M viins 'J' history-substring-search-down
+bindkey -M viins -r '^R'
+bindkey -M vicmd -r '^R'
+bindkey -M vicmd '^R' fzf-history-widget
+bindkey -M viins '^R' fzf-history-widget
 
 
 # ──[ ALIASES ]───────────────────────────────────────────────────────────
