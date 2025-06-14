@@ -47,10 +47,8 @@ source /usr/share/fzf/key-bindings.zsh
 # ──[ KEYBINDINGS ]───────────────────────────────────────────────────────
 bindkey -v
 export KEYTIMEOUT=1
-bindkey -M vicmd 'K' history-substring-search-up
-bindkey -M vicmd 'J' history-substring-search-down
-bindkey -M viins 'K' history-substring-search-up
-bindkey -M viins 'J' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 bindkey -M viins -r '^r'
 bindkey -M vicmd -r '^r'
 bindkey -M vicmd '^r' fzf-history-widget

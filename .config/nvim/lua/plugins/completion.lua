@@ -12,8 +12,6 @@ return {
   opts = {
     keymap = {
       preset = 'default',
-      ['<C-k>'] = { 'select_prev', 'fallback' },
-      ['<C-j>'] = { 'select_next', 'fallback' },
     },
     appearance = {
       nerd_font_variant = 'mono'
