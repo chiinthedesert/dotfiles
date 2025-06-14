@@ -1,42 +1,21 @@
-local map = vim.keymap.set
-
-local base_map_opts = { noremap = true, silent = true }
-
--- Helper function to create final map options by merging base_map_opts
--- with a description and any per-map specific options.
-local function MOpts(description, per_map_specific_opts)
-  local opts_with_desc = { desc = description }
-  local merged_specifics = vim.tbl_extend("force", {}, per_map_specific_opts or {}, opts_with_desc)
-  return vim.tbl_extend("force", {}, base_map_opts, merged_specifics)
+-- It sets sane defaults (noremap=true, silent=true)
+local function map(mode, lhs, rhs, opts)
+  local defaults = {
+    noremap = true,
+    silent = true,
+  }
+  if opts then
+    defaults = vim.tbl_deep_extend("force", defaults, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, defaults)
 end
 
--- ; instead of :
-map("n", ";", ":", MOpts("Enter command", {silent = false}))
 
--- Keymap to copy current file's absolute path
-map("n", "<leader>cp", "<cmd>let @+ = expand('%:p')<CR>", MOpts("Copy absolute path"))
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', ',', ':')
 
--- Keymap to Yank (Copy) all lines in the current buffer to system clipboard
-map("n", "<leader>ya", "ggVGy", MOpts("Yank all"))
 
--- Panes shortcuts
-map("n", "<leader>\\", "<C-w>v", MOpts("Split window vertically"))
-map("n", "<leader>-", "<C-w>s", MOpts("Split window horizontally"))
-map("n", "<leader>x", "<cmd>close<CR>", MOpts("Close current window"))
 
--- Buffer Navigation
-map("n", "<leader>n", "<cmd>bnext<CR>", MOpts("Buffer: Next"))
-map("n", "<leader>p", "<cmd>bprevious<CR>", MOpts("Buffer: Previous"))
-map("n", "<leader>bd", "<cmd>bdelete<CR>", MOpts("Buffer: Close current"))
--- map("n", "<leader>bl", "<cmd>ls<CR>", MOpts("Buffer: List all"))
-map("n", "<leader>bo", function()
-  local current_win = vim.api.nvim_get_current_win()
-  local windows = vim.api.nvim_tabpage_list_wins(0)
-  for _, win_id in ipairs(windows) do
-    if win_id ~= current_win then
-      vim.api.nvim_win_close(win_id, false)
-    end
-  end
-end, MOpts("Buffer: Only this window"))
-
--- ... (other keymaps can follow this pattern) ...
+map("n", "<leader>n", "<cmd>bnext<CR>", { desc = 'Buffer: Next' })
+map("n", "<leader>p", "<cmd>bprevious<CR>", { desc = "Buffer: Previous" })
+map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Buffer: Close current"})

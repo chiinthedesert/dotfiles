@@ -51,10 +51,10 @@ bindkey -M vicmd 'K' history-substring-search-up
 bindkey -M vicmd 'J' history-substring-search-down
 bindkey -M viins 'K' history-substring-search-up
 bindkey -M viins 'J' history-substring-search-down
-bindkey -M viins -r '^R'
-bindkey -M vicmd -r '^R'
-bindkey -M vicmd '^R' fzf-history-widget
-bindkey -M viins '^R' fzf-history-widget
+bindkey -M viins -r '^r'
+bindkey -M vicmd -r '^r'
+bindkey -M vicmd '^r' fzf-history-widget
+bindkey -M viins '^r' fzf-history-widget
 
 
 # ──[ ALIASES ]───────────────────────────────────────────────────────────

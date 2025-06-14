@@ -1,9 +1,11 @@
 return {
+  -- Oil
   {
     "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- Optional, for icons
+    lazy = false,
     opts = {
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
@@ -37,11 +39,20 @@ return {
         ["g."] = { "actions.toggle_hidden", mode = "n" },
         ["g\\"] = { "actions.toggle_trash", mode = "n" },
       },
+      float = {
+        -- Padding around the floating window
+        padding = 2,
+        -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+        max_width = 0.5,
+        max_height = 0.5,
+        border = "rounded",
+        win_options = {
+          winblend = 0,
+        },
+      },
     },
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
     keys = {
-      { "-", "<cmd>Oil --float<CR>", desc = "Open parent dir in Oil" },
+      { "-", "<cmd>Oil --float<CR>", desc = "Open parent dir" },
     },
   },
 
@@ -79,4 +90,5 @@ return {
       { "<leader>}", function() require("harpoon"):list():select(4) end, desc = "Harpoon 4" },
     }
   },
+
 }

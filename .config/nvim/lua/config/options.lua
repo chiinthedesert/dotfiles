@@ -1,105 +1,59 @@
--- ~/.config/nvim/lua/core/options.lua
+-- Options inspired by kickstart.nvim
+-- Set to true if your terminal uses a Nerd Font
+vim.g.have_nerd_font = true
 
-local opt = vim.opt -- Local variable for conciseness
-local g = vim.g     -- Local variable for global settings
+-- [[ General Settings ]]
+vim.o.mouse = 'a'                -- Enable mouse support
+vim.o.showmode = false           -- Don't show mode in cmd line (statusline handles it)
+vim.o.clipboard = 'unnamedplus'  -- Use system clipboard
+vim.o.confirm = true             -- Confirm quit/save dialogs
+vim.o.undofile = true            -- Enable persistent undo
+vim.o.swapfile = false           -- Disable swap files
+vim.o.backup = false             -- No backup files
+vim.o.writebackup = false        -- No backup before overwrite
+vim.o.virtualedit = 'block'      -- Allow cursor anywhere in visual block mode
+vim.g.loaded_netrw = 1           -- Disable netrw
+vim.g.loaded_netrwPlugin = 1
 
---  Appearance
-opt.termguicolors = true  -- Enable 24-bit RGB colors, essential for modern themes
-opt.number = true         -- Show line numbers
-opt.relativenumber = true -- Show relative line numbers for easier vertical navigation
-opt.cursorline = true     -- Highlight the current line
-opt.signcolumn = "yes"    -- Always show the signcolumn to prevent text jitter (reserves 1-2 columns)
-opt.wrap = false          -- Disable line wrapping (preferred for code)
--- opt.wrap = true          -- Enable line wrapping
--- opt.linebreak = true     -- Wrap lines at word boundaries (not in the middle of words)
--- opt.showbreak = '↪ '     -- Optional: show a symbol at the start of wrapped lines
+-- [[ UI Settings ]]
+vim.o.termguicolors = true       -- Enable 24-bit color
+vim.o.number = true              -- Line numbers
+vim.o.relativenumber = true      -- Relative line numbers
+vim.o.signcolumn = 'yes'         -- Always show sign column
+vim.o.cursorline = true          -- Highlight current line
+vim.o.wrap = false               -- Disable line wrap
+vim.o.scrolloff = 10             -- Padding above/below cursor
+vim.o.sidescrolloff = 10         -- Keep columns left/right of cursor
+vim.o.breakindent = true         -- Keep indent on wrapped lines
+vim.o.list = true                -- Show invisible characters
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', extends = '⟩', precedes = '⟨' }
 
--- Show invisible characters (tabs, trailing spaces, non-breaking spaces)
-opt.list = true
-opt.listchars = {
-  tab = "▸ ", -- Character for tab
-  trail = "·", -- Character for trailing whitespace
-  nbsp = "+", -- Character for non-breaking space
-  -- lead = "·", -- Character for leading whitespace (optional)
-  -- eol = "󰌑", -- Character for end of line (optional, requires Nerd Font)
-  extends = "»",
-  precedes = "«",
-}
-opt.fillchars = { eob = " " } -- Hide the `~` symbols on blank lines at the end of a buffer
+-- [[ Indentation ]]
+vim.opt.tabstop = 2              -- Tab width
+vim.opt.shiftwidth = 2           -- Indent width
+vim.opt.softtabstop = 2          -- Tab key width
+vim.opt.expandtab = true         -- Use spaces instead of tabs
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
--- Behavior
-opt.mouse = "a"               -- Enable mouse support in all modes (normal, visual, insert, command)
-opt.clipboard = "unnamedplus" -- Use the system clipboard for all yank/paste operations
-opt.hidden = true             -- Allow buffers to be hidden without saving (important for multi-file workflows)
-opt.confirm = true            -- Ask for confirmation for actions like :q on a modified buffer
-opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- [[ Search ]]
+vim.o.ignorecase = true          -- Case-insensitive by default
+vim.o.smartcase = true           -- ...but case-sensitive if capital letters used
+vim.o.inccommand = 'split'       -- Live preview of :substitute
 
--- Text Editing & Indentation
-opt.tabstop = 2        -- Number of visual spaces per tab character
-opt.softtabstop = 2    -- Number of spaces for editing operations (Tab, Backspace)
--- Set to -1 to follow shiftwidth: opt.softtabstop = -1
-opt.shiftwidth = 2     -- Number of spaces to use for auto-indentation
-opt.expandtab = true   -- Use spaces instead of tab characters
-opt.autoindent = true  -- Copy indent from current line when starting a new line
-opt.smartindent = true -- Enable smarter indentation for C-like languages (Tree-sitter indent often supersedes this)
-opt.breakindent = true -- Indented lines will wrap with the same indentation
+-- [[ Split Behavior ]]
+vim.o.splitright = true          -- Vertical split to the right
+vim.o.splitbelow = true          -- Horizontal split below
 
-opt.showmode = false   -- Disable showing mode in command line (usually handled by statusline)
+-- [[ Performance ]]
+vim.o.updatetime = 250           -- Faster completion
+vim.o.timeoutlen = 300           -- Keymap timeout
 
--- Searching
-opt.ignorecase = true -- Ignore case when searching
-opt.smartcase = true  -- Override ignorecase if the search pattern contains uppercase letters
-opt.hlsearch = false   -- Highlight all search matches
-opt.incsearch = true  -- Show search results incrementally as you type
-opt.gdefault = true   -- Make :s/.../.../ act like :s/.../.../g by default (for current line)
-
--- Performance & UI Responsiveness
-opt.scrolloff = 8     -- Keep at least 8 lines visible above and below the cursor
-opt.sidescrolloff = 8 -- Keep at least 8 columns visible to the left and right of the cursor
-opt.updatetime = 250  -- Time in milliseconds for CursorHold event (used by plugins like git-signs, LSP)
-opt.timeoutlen = 500  -- Time in milliseconds to wait for a mapped sequence to complete (default 1000)
--- Consider ttimeoutlen if you use <Esc> for mode changes quickly:
--- opt.timeout = true
--- opt.ttimeoutlen = 10
-
-opt.completeopt = "menuone,noselect,noinsert" -- Autocompletion options for nvim-cmp:
--- menuone: show menu even if only one match
--- noselect: don't automatically select the first match
--- noinsert: don't automatically insert the first match
-
--- Files & Backup
-opt.swapfile = false -- Disable swap files (using persistent undo instead)
-opt.backup = false   -- Disable backup files
-opt.undofile = true  -- Enable persistent undo (Neovim will store undo history in a file)
--- You can set undodir if you want, e.g.:
--- local undodir = vim.fn.stdpath("data") .. "/undodir"
--- if vim.fn.isdirectory(undodir) == 0 then vim.fn.mkdir(undodir, "p") end
--- opt.undodir = undodir
-
-opt.autoread = true -- Automatically re-read files if changed outside Neovim (e.g., by git)
-
--- Message verbosity
--- See :help 'shortmess' for all flags
--- Example: 'c' avoids "match 1 of N" during completion, 'A' avoids startup messages for reading files
-opt.shortmess = opt.shortmess + "c" + "A" + "I" -- Add flags, 'I' to suppress intro message
-
--- Folding (very basic, often overridden by plugins like nvim-treesitter or dedicated folding plugins)
--- opt.foldmethod = "indent" -- Example: fold by indent
--- opt.foldlevel = 99        -- Start with all folds open
--- opt.foldenable = true
-
--- Global Variables
-g.loaded_netrw = 1       -- Disable the built-in Netrw file explorer
-g.loaded_netrwPlugin = 1 -- if you are using a plugin like neo-tree
-vim.g.netrw_browsex_viewer = "xdg-open"
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+-- [[ Autocommands ]]
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight on yank',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
   callback = function()
-    vim.hl.on_yank()
+    vim.highlight.on_yank()
   end,
 })
