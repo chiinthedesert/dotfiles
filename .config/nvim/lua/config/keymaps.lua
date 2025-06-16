@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.keymap.set("n", ",", ":")
 
 -- Sets sane defaults (noremap=true, silent=true)
 local function map(mode, lhs, rhs, opts)

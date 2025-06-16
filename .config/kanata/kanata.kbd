@@ -1,0 +1,47 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc
+  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft   z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl   lmet lalt spc  ralt rmet rctl
+)
+
+(defalias
+  escctrl (tap-hold 150 150 esc lctl)
+  minusctrl (tap-hold 150 150 - rctl)
+;;  shift (layer-while-held shift)
+  shift (one-shot 500 (layer-while-held shift))
+  numpad (layer-while-held numpad)
+)
+
+(deflayer base
+  caps
+  S-4      S-= S-8  lbrc S-lbrc S-9  S-7  =   S-0  S-rbrc rbrc S-1  S-\ bspc
+  tab      q    w    e    r    t    y    u    i    o    p    ;  /    \
+  @escctrl a    s    d    f    g    h    j    k    l    '    @minusctrl    ret
+  @shift   z    x    c    v    b    n    m    ,    .    S-2    @shift
+  lctl     @numpad lalt spc  ralt  rmet  rctl
+)
+
+(deflayer shift
+  _ 
+  S-`    1    2    3    4    5    6    7    8    9    0    S-5    `    _
+  _      S-q  S-w  S-e  S-r  S-t  S-y  S-u  S-i  S-o  S-p  S-;    S-/    S-3
+  _      S-a  S-s  S-d  S-f  S-g  S-h  S-j  S-k  S-l  S-'  S--    _
+  lsft   S-z  S-x  S-c  S-v  S-b  S-n  S-m  S-,  S-.  S-6  rsft
+  _      _    _    _    _    _    _
+)
+
+(deflayer numpad
+  _
+  _    _     _    _    _    _    _    _    _    _    _    _    _    _
+  _    _     _    _    _    _    _    1    2    3    _    _    _    _
+  _    _     _    _    _    _    _    4    5    6    0    _    _
+  _    _     _    _    _    _    _    7    8    9    _    _
+  _    lmet  _    _    _    _    _
+)

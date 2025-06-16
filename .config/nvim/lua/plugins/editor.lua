@@ -29,7 +29,7 @@ return {
     cmd = { "ConformInfo" },
     keys = {
       {
-        "<leader>f",
+        "<leader>fm",
         function()
           require("conform").format({ async = true })
         end,
@@ -40,6 +40,8 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
+        html = { "prettierd", "prettier", stop_after_first = true },
+        css = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
       },
     },
