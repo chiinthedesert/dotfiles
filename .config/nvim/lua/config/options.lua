@@ -5,7 +5,7 @@ vim.g.have_nerd_font = true
 -- [[ General Settings ]]
 vim.o.mouse = 'a'                -- Enable mouse support
 vim.o.showmode = false           -- Don't show mode in cmd line (statusline handles it)
-vim.o.clipboard = 'unnamedplus'  -- Use system clipboard
+-- vim.o.clipboard = 'unnamedplus'  -- Use system clipboard
 vim.o.confirm = true             -- Confirm quit/save dialogs
 vim.o.undofile = true            -- Enable persistent undo
 vim.o.swapfile = false           -- Disable swap files

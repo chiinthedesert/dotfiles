@@ -1,48 +1,78 @@
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold yes
+  danger-enable-cmd yes
 )
 
 (defsrc
   esc
-  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft   z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl   lmet lalt spc  ralt rmet rctl
+  grv    1    2    3    4     5     6     7    8    9    0    -    =    bspc
+  tab    q    w    e    r     t     y     u    i    o    p    [    ]    \
+  caps   a    s    d    f     g     h     j    k    l    ;    '    ret
+  lsft   z    x    c    v     b     n     m    ,    .    /    rsft
+  lctl   lmet lalt spc  ralt  rmet  rctl
 )
 
 (defalias
   escctrl (tap-hold 150 150 esc lctl)
   minusctrl (tap-hold 150 150 - rctl)
-;;  shift (layer-while-held shift)
-  shift (one-shot 500 (layer-while-held shift))
-  numpad (layer-while-held numpad)
-  f (tap-hold 150 150 f (layer-while-held symbols))
+  ctrlshift (multi lctl lsft)
+  shift (one-shot 500 lshift)
+  a (tap-hold 150 150 a (layer-while-held symbolsa))
+  ' (tap-hold 150 150 ' (layer-while-held symbolsb))
+  s (tap-hold 150 150 s (layer-while-held symbolsb))
+  z (tap-hold 150 150 z (layer-while-held numpad))
+  l (tap-hold 150 150 l rshift)
+  n (tap-hold 150 150 n rshift)
+
+  layout-toggle (switch
+    ((base-layer base))   (layer-switch dvorak) break
+    ((base-layer dvorak)) (layer-switch base)   break
+  )
+
+;;  layout-toggle (switch
+;;    ((base-layer base))   (multi (layer-switch dvorak) (cmd notify-send -t 1000 -u "Dvorak") ) break
+;;    ((base-layer dvorak)) (multi (layer-switch base) (cmd notify-send -t 1000 -u "Qwerty") ) break
+;;  )
+
+)
+
+(defchordsv2
+  (lmet spc) @layout-toggle 150 first-release ()
+)
+
+(deflayer dvorak
+  caps
+  XX       1      2     3     4     5     6     7     8     bspc  ret    XX    XX    XX
+  tab      '      ,     .     p     y     f     g     c     r     l      bspc  XX    XX
+  @escctrl @a     o     e     u     i     d     h     t     @n    @s     @minusctrl   ret
+  @shift   @z     q     j     k     x     b     m     w     v     @shift     XX
+  @ctrlshift     lmeta lalt  spc   ralt  rmet  @ctrlshift
 )
 
 (deflayer base
   caps
-  S-4      S-=  S-8  lbrc S-lbrc S-9  S-7  =   S-0  S-rbrc rbrc S-1  S-\ bspc
-  tab      q    w    e    r    t    y    u    i    o    p    ;  /    \
-  @escctrl a    s    d    @f   g    h    j    k    l    '    @minusctrl    ret
-  @shift   z    x    c    v    b    n    m    ,    .    S-2    @shift
-  lctl     @numpad lalt spc  ralt  rmet  rctl
+  XX       1      2     3    4     5     6     7   8    bspc ret     XX          XX    XX
+  tab      q      w     e    r     t     y     u   i    o    p       bspc        XX    XX
+  @escctrl @a     s     d    f     g     h     j   k    @l   @'      @minusctrl       ret
+  @shift   @z     x     c    v     b     n     m   ,    .    @shift  XX
+  @ctrlshift     lmeta  lalt  spc  ralt  rmet  @ctrlshift
 )
 
-(deflayer shift
-  _ 
-  S-`    1    2    3    4    5    6    7    8    9    0    S-5    `    _
-  _      S-q  S-w  S-e  S-r  S-t  S-y  S-u  S-i  S-o  S-p  S-;    S-/  S-3
-  _      S-a  S-s  S-d  S-f  S-g  S-h  S-j  S-k  S-l  S-'  S--    _
-  lsft   S-z  S-x  S-c  S-v  S-b  S-n  S-m  S-,  S-.  S-6  rsft
-  _      _    _    _    _    _    _
+(deflayer symbolsb
+  _
+  _    _     _    _    _    _    _    _    _    _    _    _    _    _
+  _    _     S-7  S-9  S-0  _    _    _    _    _    _    _    _    _
+  _    \     S-3  S-[  S-]  =    _    _    _    _    '    _    _
+  _    _     S-=  [    ]    _    _    _    _    _    _    _
+  _    _     _    _    _    _    _
 )
 
-(deflayer symbols
+(deflayer symbolsa
   _
   _    _     _    _    _    _    _    _    _    _    _    _    _    _
   _    _     _    _    _    _    _    ;    S-;  S-2  _    _    _    _
-  _    _     _    _    f    _    S-5  /    S-4  S-/  `    _    _
+  _    a     _    _    _    _    S-5  /    S-4  S-/  `    _    _
   _    _     _    _    _    _    _    S-`  S-1  S-\  _    _
   _    _     _    _    _    _    _
 )
@@ -52,6 +82,6 @@
   _    _     _    _    _    _    _    _    _    _    _    _    _    _
   _    _     _    _    _    _    _    1    2    3    _    _    _    _
   _    _     _    _    _    _    _    4    5    6    0    _    _
-  _    _     _    _    _    _    _    7    8    9    _    _
-  _    lmet  _    _    _    _    _
+  _    z     _    _    _    _    _    7    8    9    _    _
+  _    _     _    _    _    _    _
 )
