@@ -32,32 +32,13 @@
   /           (tap-hold-press 200 200 / (layer-while-held numpad))
 
   layout-toggle (switch
-    ((base-layer colemak-dh))   (layer-switch dvorak) break
-    ((base-layer dvorak)) (layer-switch colemak-dh)   break
+    ((base-layer colemak))   (layer-switch dvorak) break
+    ((base-layer dvorak)) (layer-switch colemak)   break
   )
 )
 
 (defchordsv2
   (lmet spc) @layout-toggle 150 first-release ()
-)
-
-
-
-(deflayer colemak-dh
-  XX
-  caps     1     2     3     4     5        6     7     8     9     0     XX    XX    XX
-  tab      q     w     f     p     b        j     l     u     y     '     bspc  XX    XX
-  @escctrl @ac   r     s     t     g        m     n     e     i     @o    @minusctrl ret
-  @z       x     c     d     v     b        k     h     ,     .     /     @sft
-  @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
-)
-(deflayer sft
-  _
-  _        S-1   S-2   S-3   S-4   S-5      S-6   S-7   S-8   S-9   S-0   XX    XX    XX
-  S-tab    S-q   S-w   S-f   S-r   S-b      S-j   S-l   S-u   S-y   S-'   _     XX    S-ret
-  _        S-a   S-r   S-s   S-t   S-g      S-m   S-n   S-e   S-i   S-o   S--   _
-  S-z      S-x   S-c   S-d   S-v   S-b      S-k   S-h   S-,   S-.   S-/   _
-  _        _     @S-retalt   S-spc        _     _     _
 )
 
 
@@ -81,12 +62,32 @@
 
 
 
+(deflayer colemak
+  XX
+  caps     1     2     3     4     5        6     7     8     9     0     XX    XX    XX
+  tab      q     w     f     p     b        j     l     u     y     '     bspc  XX    XX
+  @escctrl @ac   r     s     t     g        m     n     e     i     @o    @minusctrl ret
+  @sft     @z    x     c     d     v        k     h     ,     .     /     @sft
+  @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
+)
+(deflayer sft
+  _
+  _        S-1   S-2   S-3   S-4   S-5      S-6   S-7   S-8   S-9   S-0   XX    XX    XX
+  S-tab    S-q   S-w   S-f   S-r   S-b      S-j   S-l   S-u   S-y   S-'   _     XX    S-ret
+  _        S-a   S-r   S-s   S-t   S-g      S-m   S-n   S-e   S-i   S-o   S--   _
+  _        S-z   S-x   S-c   S-d   S-v      S-k   S-h   S-,   S-.   S-/   _
+  _        _     @S-retalt   S-spc        _     _     _
+)
+
+
+
+
 (deflayer symbols
   _
   _        _     _     _     _     _        _     _     _     _     ret   _     _     _
   _        grv   S-,   S-.   -     S-\      S-6   S-[   S-]   S-4   (macro - S-.) _ _ _
   spc      S-1   S-8   /     =     S-7      S-3   S-9   S-0   ;     S-'   _     _
-  S-grv    S-=   [     ]     S-5   _        S-2   S-;   S-/   S--   \     _
+  _        S-grv S-=   [     ]     S-5      S-2   S-;   S-/   S--   \     _
   _        _     _           _            _     _     _
 )
 
