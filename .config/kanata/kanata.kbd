@@ -24,16 +24,16 @@
   sftd        (one-shot 500 (layer-while-held sftd))
   a           (tap-hold-press 200 200 a (layer-while-held sftd))
   s           (tap-hold-press 200 200 s (layer-while-held sftd))
-  ac          (tap-hold-press 200 200 a (layer-while-held sft))
-  o           (tap-hold-press 200 200 o (layer-while-held sft))
-
+  aq          (tap-hold-press 200 200 a (layer-while-held sft))
+  '           (tap-hold-press 200 200 ' (layer-while-held sft))
   spc         (tap-hold-press 200 200 spc (layer-while-held symbols))
-  z           (tap-hold-press 200 200 z (layer-while-held numpad))
-  /           (tap-hold-press 200 200 / (layer-while-held numpad))
+;;  z           (tap-hold-press 200 200 z (layer-while-held numpad))
+  num         (tap-hold-press 200 200 (macro - S-.) (layer-while-held numpad))
+;;  /           (tap-hold-press 200 200 / (layer-while-held numpad))
 
   layout-toggle (switch
-    ((base-layer colemak))   (layer-switch dvorak) break
-    ((base-layer dvorak)) (layer-switch colemak)   break
+    ((base-layer qwerty)) (layer-switch dvorak) break
+    ((base-layer dvorak)) (layer-switch qwerty) break
   )
 )
 
@@ -41,43 +41,40 @@
   (lmet spc) @layout-toggle 150 first-release ()
 )
 
-
-
 (deflayer dvorak
   XX
-  caps     1     2     3     4     5        6     7     8     9     0     XX    XX    XX
+  caps     S-2   [     S-[   S-9   S-6      XX    S-4   S-0   S-]   ]     `     XX    XX
   tab      '     ,     .     p     y        f     g     c     r     l     bspc  XX    XX
   @escctrl @a    o     e     u     i        d     h     t     n     @s    @minusctrl ret
-  @sftd    @/    q     j     k     x        b     m     w     v     z     @sftd
+  @num     /     q     j     k     x        b     m     w     v     z     @sftd
   @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
 )
 (deflayer sftd
   _
-  _        S-1   S-2   S-3   S-4   S-5      S-6   S-7   S-8   S-9   S-0   XX    XX    XX
+  _        1     2     3     4     5        XX    6     7     8     9     0     XX    XX
   S-tab    S-'   S-,   S-.   S-p   S-y      S-f   S-g   S-c   S-r   S-l   _     XX    S-ret
   _        S-a   S-o   S-e   S-u   S-i      S-d   S-h   S-t   S-n   S-s   S--   _
-  _        S-/   S-q   S-j   S-k   S-x      S-b   S-m   S-w   S-v   S-/   _
+  (macro = S-.)        S-/   S-q   S-j   S-k   S-x      S-b   S-m   S-w   S-v   S-z   _
   _        _     @S-retalt   S-spc        _     _     _
 )
 
-
-
-(deflayer colemak
+(deflayer qwerty
   XX
-  caps     1     2     3     4     5        6     7     8     9     0     XX    XX    XX
-  tab      q     w     f     p     b        j     l     u     y     '     bspc  XX    XX
-  @escctrl @ac   r     s     t     g        m     n     e     i     @o    @minusctrl ret
-  @sft     @z    x     c     d     v        k     h     ,     .     /     @sft
+  caps     S-2   [     S-[   S-9   S-6      XX    S-4   S-0   S-]   ]     `     XX    XX
+  tab      q     w     e     r     t        y     u     i     o     p     bspc  XX    XX
+  @escctrl @aq   s     d     f     g        h     j     k     l     @'    @minusctrl ret
+  @num     z     x     c     v     b        n     m     ,     .     /     @sft
   @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
 )
 (deflayer sft
   _
-  _        S-1   S-2   S-3   S-4   S-5      S-6   S-7   S-8   S-9   S-0   XX    XX    XX
-  S-tab    S-q   S-w   S-f   S-r   S-b      S-j   S-l   S-u   S-y   S-'   _     XX    S-ret
-  _        S-a   S-r   S-s   S-t   S-g      S-m   S-n   S-e   S-i   S-o   S--   _
-  _        S-z   S-x   S-c   S-d   S-v      S-k   S-h   S-,   S-.   S-/   _
+  _        1     2     3     4     5        XX    6     7     8     9     0     XX    XX
+  S-tab    S-q   S-w   S-e   S-r   S-t      S-y   S-u   S-i   S-o   S-p   _     XX    S-ret
+  _        S-a   S-s   S-d   S-f   S-g      S-h   S-j   S-k   S-l   S-'   S--   _
+  (macro = S-.        S-z   S-x   S-c   S-v   S-b      S-n   S-m   S-,   S-.   S-/   _
   _        _     @S-retalt   S-spc        _     _     _
 )
+
 
 
 
@@ -85,9 +82,9 @@
 (deflayer symbols
   _
   _        _     _     _     _     _        _     _     _     _     ret   _     _     _
-  _        grv   S-,   S-.   -     S-\      S-6   S-[   S-]   S-4   (macro - S-.) _ _ _
-  spc      S-1   S-8   /     =     S-7      S-3   S-9   S-0   ;     S-'   _     _
-  _        S-grv S-=   [     ]     S-5      S-2   S-;   S-/   S--   \     _
+  _        _     S-2   S-3   S-\   _        _     ;     -     S--   _     _     _     _
+  spc      S-`   S-8   S-,   S-.   _        _     =     /     S-1   S-'   _     _
+  _        _     S-5   S-/   S-7   _        _     S-;   S-=   \     _     _
   _        _     _           _            _     _     _
 )
 
