@@ -42,7 +42,10 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      image = { enabled = true },
+      image = {
+        enabled = true,
+        doc = { enabled = false },
+      },
       dashboard = { enabled = true },
       bufdelete = { enabled = true },
     },
