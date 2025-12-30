@@ -97,6 +97,8 @@ tooltip box {
   background-color: alpha(black, .6);
 }
 #clock,
+#idle_inhibitor,
+#tray,
 #battery,
 #cpu,
 #memory,

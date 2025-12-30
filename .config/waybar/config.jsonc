@@ -14,6 +14,8 @@
     "clock"
   ],
   "modules-right": [
+    "tray",
+    "idle_inhibitor",
     "network",
     "pulseaudio",
     "backlight",
@@ -56,6 +58,17 @@
     "tooltip-format": "{:%Y-%m-%d}"
   },
 
+  "tray": {
+    "icon-size": 24,
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "", // Open eye (Inhibit is active)
+      "deactivated": "" // Closed eye (Inhibit is inactive)
+    },
+    "timeout": 120
+  },
   "network": {
     "justify": "center",
     // "interface": "wlp2*", // (Optional) To force the use of this interface

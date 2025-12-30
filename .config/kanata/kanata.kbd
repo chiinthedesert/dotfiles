@@ -20,10 +20,10 @@
   bspcalt     (tap-hold-press 200 200 bspc lalt)
   S-retalt    (tap-hold-press 200 200 S-ret lalt)
   ctlsft      (multi lctl lsft)
-;;  sft         (one-shot 500 (layer-while-held sft))
-  sftd        (one-shot 500 (layer-while-held sftd))
-  a           (tap-hold-press 200 200 a (layer-while-held sftd))
-  s           (tap-hold-press 200 200 s (layer-while-held sftd))
+  sft         (one-shot 500 (layer-while-held sft))
+;;  sftd        (one-shot 500 (layer-while-held sftd))
+  a           (tap-hold-press 200 200 a (layer-while-held sft))
+  '           (tap-hold-press 200 200 ' (layer-while-held sft))
   spc         (tap-hold-press 200 200 spc (layer-while-held symbols))
   num         (tap-hold-press 200 200 (macro - S-.) (layer-while-held numpad))
 
@@ -37,40 +37,40 @@
 ;;  (lmet spc) @layout-toggle 150 first-release ()
 ;;)
 
-(deflayer dvorak
-  XX
-  caps     S-2   [     S-[   S-9   S-6      XX    S-4   S-0   S-]   ]     `     XX    XX
-  tab      '     ,     .     p     y        f     g     c     r     l     bspc  XX    XX
-  @escctrl @a    o     e     u     i        d     h     t     n     @s    @minusctrl ret
-  @num     /     q     j     k     x        b     m     w     v     z     @sftd
-  @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
-)
-(deflayer sftd
-  _
-  _        1     2     3     4     5        XX    6     7     8     9     0     XX    XX
-  S-tab    S-'   S-,   S-.   S-p   S-y      S-f   S-g   S-c   S-r   S-l   _     XX    S-ret
-  _        S-a   S-o   S-e   S-u   S-i      S-d   S-h   S-t   S-n   S-s   S--   _
-  (macro = S-.)        S-/   S-q   S-j   S-k   S-x      S-b   S-m   S-w   S-v   S-z   _
-  _        _     @S-retalt   S-spc        _     _     _
-)
-
-
-;;(deflayer qwerty
+;;(deflayer dvorak
 ;;  XX
 ;;  caps     S-2   [     S-[   S-9   S-6      XX    S-4   S-0   S-]   ]     `     XX    XX
-;;  tab      q     w     e     r     t        y     u     i     o     p     bspc  XX    XX
-;;  @escctrl @aq   s     d     f     g        h     j     k     l     @'    @minusctrl ret
-;;  @num     z     x     c     v     b        n     m     ,     .     /     @sft
+;;  tab      '     ,     .     p     y        f     g     c     r     l     bspc  XX    XX
+;;  @escctrl @a    o     e     u     i        d     h     t     n     @s    @minusctrl ret
+;;  @num     /     q     j     k     x        b     m     w     v     z     @sftd
 ;;  @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
 ;;)
-;;(deflayer sft
+;;(deflayer sftd
 ;;  _
 ;;  _        1     2     3     4     5        XX    6     7     8     9     0     XX    XX
-;;  S-tab    S-q   S-w   S-e   S-r   S-t      S-y   S-u   S-i   S-o   S-p   _     XX    S-ret
-;;  _        S-a   S-s   S-d   S-f   S-g      S-h   S-j   S-k   S-l   S-'   S--   _
-;;  (macro = S-.)        S-z   S-x   S-c   S-v   S-b      S-n   S-m   S-,   S-.   S-/   _
+;;  S-tab    S-'   S-,   S-.   S-p   S-y      S-f   S-g   S-c   S-r   S-l   _     XX    S-ret
+;;  _        S-a   S-o   S-e   S-u   S-i      S-d   S-h   S-t   S-n   S-s   S--   _
+;;  (macro = S-.)        S-/   S-q   S-j   S-k   S-x      S-b   S-m   S-w   S-v   S-z   _
 ;;  _        _     @S-retalt   S-spc        _     _     _
 ;;)
+
+
+(deflayer qwerty
+  XX
+  caps     S-2   [     S-[   S-9   S-6      XX    S-4   S-0   S-]   ]     `     XX    XX
+  tab      q     w     e     r     t        y     u     i     o     p     bspc  XX    XX
+  @escctrl @a    s     d     f     g        h     j     k     l     @'    @minusctrl ret
+  @num     z     x     c     v     b        n     m     ,     .     /     @sft
+  @ctlsft  lmet  @retalt     @spc        @bspcalt  rmet  @ctlsft
+)
+(deflayer sft
+  _
+  _        1     2     3     4     5        XX    6     7     8     9     0     XX    XX
+  S-tab    S-q   S-w   S-e   S-r   S-t      S-y   S-u   S-i   S-o   S-p   _     XX    S-ret
+  _        S-a   S-s   S-d   S-f   S-g      S-h   S-j   S-k   S-l   S-'   S--   _
+  (macro = S-.)        S-z   S-x   S-c   S-v   S-b      S-n   S-m   S-,   S-.   S-/   _
+  _        _     @S-retalt   S-spc        _     _     _
+)
 
 
 
@@ -88,8 +88,8 @@
 (deflayer numpad
   _
   _        _     _     _     _     _        _     _     _     _     ret   _     _     _
-  _        _     _     _     _     _        _     1     2     3     _     _     _     _
+  _        _     _     _     _     _        _     7     8     9     _     _     _     _
   _        _     _     _     _     _        _     4     5     6     0     _     _
-  _        _     _     _     _     _        _     7     8     9     _     _
+  _        _     _     _     _     _        _     1     2     3     _     _
   _        _     _           _            _     _     _
 )
