@@ -8,7 +8,7 @@
 #window {
 }
 window#waybar {
-  background-color: alpha(#282828, 0.8);
+  background-color: alpha(#282828, 0.6);
   transition-property: background-color;
   transition-duration: .4s;
 }
@@ -26,7 +26,7 @@ button:active {
 tooltip {
   font-size: 16px;
   color: antiquewhite;
-  background-color: alpha(black, .8);
+  background-color: alpha(black, .6);
   font-family: "Terminus (TTF)";
   /* border-radius: 8px; */
 }

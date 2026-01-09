@@ -1,5 +1,5 @@
 window {
-  background-color: rgba(50,50,50,0.9);
+  background-color: rgba(50,50,50,0.6);
   color: #EBDBB2;
 }
 
@@ -28,7 +28,7 @@ window {
 
 #entry:selected {
   background-color: #bbccdd;
-  color: #333333;
+  color: #bbccdd;
 }
 #text:selected {
   color: #333333;
