@@ -35,16 +35,16 @@
   caps
   XX     S-2    [      S-[    S-9    S-6    XX     S-4    S-0    S-]    ]      `      XX     XX
   tab    '      ,      bspc   p      y      f      g      c      r      l      XX     XX     XX
-  @ectl  @a     @o     @e     u      i      d      h      t      n      @s     @-ctl  ret
+  @ectl  @a     @o     @e     u      i      d      h      t      n      @s     @-ctl  XX 
   @cw    .      q      j      k      x      b      m      w      v      z      rsft
-  @ctsf  lmet   @real         @spc          @bsal  rmet   @ctsf
+  @ctsf  lmet   @real         @spc          ralt   rmet   @ctsf
 )
 
 (deflayer sft
   _
   _      1      2      3      4      5      XX     6      7      8      9      0      _      _ 
   S-tab  S-'    S-,    S-.    S-p    S-y    S-f    S-g    S-c    S-r    S-l    _      _      _    
-  _      S-a    S-o    S-e    S-u    S-i    S-d    S-h    S-t    S-n    S-s    S--    _
+  S-esc  S-a    S-o    S-e    S-u    S-i    S-d    S-h    S-t    S-n    S-s    S--    _
   _      S-.    S-q    S-j    S-k    S-x    S-b    S-m    S-w    S-v    S-z    _
   _      _      @S-real       S-spc         _      _      _
 )
