@@ -15,41 +15,38 @@
 
 (defalias
   ectl   (tap-hold-release 150 150 esc lctl)
-  -ctl   (tap-hold-release 150 150 - rctl)
+  'ctl   (tap-hold-release 150 150 ' rctl)
   real   (tap-hold-release 150 150 ret lalt)
   bsal   (tap-hold-release 150 150 bspc lalt)
   S-real (tap-hold-release 150 150 S-ret lalt)
   S-bsal (tap-hold-release 150 150 S-bspc lalt)
   ctsf   (multi lctl lsft)
   cw     (caps-word 2000)
-  sft    (one-shot 500 (layer-while-held sft))
-  a      (tap-hold-release 150 150 a (layer-while-held sft))
-  s      (tap-hold-release 150 150 s (layer-while-held sft))
+  d      (tap-hold-release 150 150 d lsft)
+  k      (tap-hold-release 150 150 k rsft)
+  f      (tap-hold-release 150 150 f (layer-while-held nav))
+  s      (tap-hold-release 150 150 s (layer-while-held numpad))
   spc    (tap-hold-release 150 150 spc (layer-while-held symbols))
-  e      (tap-hold-release 150 150 e (layer-while-held numpad))
-  o      (tap-hold-release 150 150 o (layer-while-held nav))
 
-  tog (layer-switch raw)
-  dvo (layer-switch dvorak)
+;;  sft    (one-shot 500 (layer-while-held sft))
+;;  a      (tap-hold-release 150 150 a (layer-while-held sft))
+;;  s      (tap-hold-release 150 150 s (layer-while-held sft))
+;;  e      (tap-hold-release 150 150 e (layer-while-held numpad))
+;;  o      (tap-hold-release 150 150 o (layer-while-held nav))
+
+;;  tog (layer-switch raw)
+;;  dvo (layer-switch dvorak)
 )
 
 
-(deflayer dvorak
+
+(deflayer raw
   caps
-  @tog   S-2    [      S-[    S-9    S-6    XX     S-4    S-0    S-]    ]      `      XX     XX
-  tab    '      ,      bspc   p      y      f      g      c      r      l      XX     XX     XX
-  @ectl  @a     @o     @e     u      i      d      h      t      n      @s     @-ctl  XX 
-  @cw    .      q      j      k      x      b      m      w      v      z      rsft
-  @ctsf  lmet   @real         @spc          ralt   rmet   @ctsf
-)
-
-(deflayer sft
-  _
-  _      1      2      3      4      5      XX     6      7      8      9      0      _      _ 
-  S-tab  S-'    S-,    S-.    S-p    S-y    S-f    S-g    S-c    S-r    S-l    _      _      _    
-  S-esc  S-a    S-o    S-e    S-u    S-i    S-d    S-h    S-t    S-n    S-s    S--    _
-  _      S-.    S-q    S-j    S-k    S-x    S-b    S-m    S-w    S-v    S-z    _
-  _      _      @S-real       S-spc         _      _      _
+  grv    1      2      3      4      5      6      7      8      9      0      -      =      bspc
+  tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+  @ectl  a      @s     @d     @f     g      h      j      @k     l      ;     @'ctl      ret
+  lsft   z      x      c      v      b      n      m      ,      .      /      rsft 
+  lctl   lmet   lalt          @spc          ralt   rmet   rctl
 )
 
 (deflayer symbols
@@ -64,8 +61,8 @@
 (deflayer nav
   _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      home   up     end    _      _      _      _
-  _      _      _      _      _      _      pgup   left   down   right  pgdn   _      _
+  _      _      _      _      _      _      home   pgdn   pgup   end    _      _      _      _
+  _      _      _      _      _      _      left   down   up     right  pgdn   _      _
   _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _             _             _      _      _
 )
@@ -80,11 +77,19 @@
 )
 
 
-(deflayer raw
-  esc
-  @dvo   1      2      3      4      5      6      7      8      9      0      -      =      bspc
-  tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
-  caps   a      s      d      f      g      h      j      k      l      ;      '      ret
-  lsft   z      x      c      v      b      n      m      ,      .      /      rsft 
-  lctl   lmet   lalt          spc           ralt   rmet   rctl
-)
+;;(deflayer dvorak
+;;  caps
+;;  @tog   S-2    [      S-[    S-9    S-6    XX     S-4    S-0    S-]    ]      `      XX     XX
+;;  tab    '      ,      bspc   p      y      f      g      c      r      l      XX     XX     XX
+;;  @ectl  @a     @o     @e     u      i      d      h      t      n      @s     @-ctl  XX 
+;;  @cw    .      q      j      k      x      b      m      w      v      z      rsft
+;;  @ctsf  lmet   @real         @spc          ralt   rmet   @ctsf
+;;)
+;;(deflayer sft
+;;  _
+;;  _      1      2      3      4      5      XX     6      7      8      9      0      _      _ 
+;;  S-tab  S-'    S-,    S-.    S-p    S-y    S-f    S-g    S-c    S-r    S-l    _      _      _    
+;;  S-esc  S-a    S-o    S-e    S-u    S-i    S-d    S-h    S-t    S-n    S-s    S--    _
+;;  _      S-.    S-q    S-j    S-k    S-x    S-b    S-m    S-w    S-v    S-z    _
+;;  _      _      @S-real       S-spc         _      _      _
+;;)
