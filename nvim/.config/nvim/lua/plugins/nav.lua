@@ -23,7 +23,12 @@ return {
     ---@module "fzf-lua"
     ---@type fzf-lua.Config|{}
     ---@diagnostic disable: missing-fields
-    opts = {},
+    opts = {
+      winopts = {
+        border = "single",
+        preview = { border = "single" },
+      },
+    },
     ---@diagnostic enable: missing-fields
     keys = {
       { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "find files" },
