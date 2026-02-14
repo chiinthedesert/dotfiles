@@ -11,20 +11,19 @@ return {
   },
 
   {
-    "rose-pine/neovim",
-    enabled = false,
-    name = "rose-pine-moon",
-    config = function()
-      vim.cmd("colorscheme rose-pine")
-    end,
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     opts = {},
   },
 
   {
     "xiyaowong/transparent.nvim",
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 }
