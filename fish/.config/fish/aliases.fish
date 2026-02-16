@@ -1,8 +1,3 @@
-alias l. 'ls -d .*'   # List only hidden files (dotfiles)
-alias la 'ls -a'
-alias ls 'ls -l'
-alias c 'clear'
-
 
 alias cp 'cp -i'                   # Confirm before overwriting a file
 alias mv 'mv -i'                   # Confirm before overwriting
