@@ -39,6 +39,7 @@
 (defchordsv2
   (i o) ret 75 first-release ()
   (w e) esc 75 first-release ()
+  (u i) bspc 100 first-release ()
 )
 
 
