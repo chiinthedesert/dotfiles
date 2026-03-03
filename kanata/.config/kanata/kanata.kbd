@@ -19,18 +19,18 @@
 )
 
 (defalias
-  a      (tap-hold-release-keys 175 125 a lmet $left_hand)
-  s      (tap-hold-release-keys 175 125 s lalt $left_hand)
-  d      (tap-hold-release-keys 175 125 d lsft $left_hand)
-  f      (tap-hold-release-keys 175 125 f lctl $left_hand)
+  a      (tap-hold-release-keys 175 150 a lmet $left_hand)
+  s      (tap-hold-release-keys 175 150 s lalt $left_hand)
+  d      (tap-hold-release-keys 175 150 d lsft $left_hand)
+  f      (tap-hold-release-keys 175 150 f lctl $left_hand)
 
-  j      (tap-hold-release-keys 175 125 j rctl $right_hand)
-  k      (tap-hold-release-keys 175 125 k rsft $right_hand)
-  l      (tap-hold-release-keys 175 125 l ralt $right_hand)
-  ;      (tap-hold-release-keys 175 125 ; rmet $right_hand)
+  j      (tap-hold-release-keys 175 150 j rctl $right_hand)
+  k      (tap-hold-release-keys 175 150 k rsft $right_hand)
+  l      (tap-hold-release-keys 175 150 l ralt $right_hand)
+  ;      (tap-hold-release-keys 175 150 ; rmet $right_hand)
 
-  lalt   (tap-hold-release 175 125 tab lalt)
-  ralt   (tap-hold-release 175 125 bspc lalt)
+  lalt   (tap-hold-release 175 150 tab lalt)
+  ralt   (tap-hold-release 175 150 bspc lalt)
 
   cw     (caps-word 2000)
   esc    (tap-dance 200 ((caps-word 2000) caps))
@@ -40,7 +40,6 @@
 (defchordsv2
   (i o) ret 75 first-release ()
   (w e) esc 75 first-release ()
-  (u i) bspc 100 first-release ()
 )
 
 
@@ -49,7 +48,7 @@
   grv    1      2      3      4      5      6      7      8      9      0      -      =      bspc
   tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
   @syms  @a     @s     @d     @f     g      h      @j     @k     @l     @;     @syms  ret
-  lsft   z      x      c      v      b      n      m      ,      .      /      rsft 
+  lsft   z      x      c      v      b      n      m      ,      .      '      rsft 
   lctl   lmet   @lalt         @spc          @ralt   rmet   rctl
 )
 
