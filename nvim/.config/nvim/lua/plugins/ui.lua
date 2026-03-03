@@ -1,18 +1,28 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    enabled = true,
+    enabled = false,
     priority = 1000,
-    config = true,
     opts = ...,
     config = function()
       vim.cmd("colorscheme gruvbox")
     end,
   },
+  {
+    "p00f/alabaster.nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme alabaster")
+    end,
+  },
 
   {
     "nvim-lualine/lualine.nvim",
-    opts = {},
+    opts = {
+      options = {
+        theme = "alabaster",
+      },
+    },
   },
 
   {
