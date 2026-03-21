@@ -21,7 +21,11 @@ return {
       -- Define your formatters
       formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { "prettierd" },
+        html = { "prettierd" },
+        css = { "prettierd" },
+        json = { "prettierd" },
+        python = { "ruff" },
       },
       -- Set default options
       default_format_opts = {
