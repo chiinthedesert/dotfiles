@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR EDITOR:nvim
+SETUVAR --export EDITOR:nvim
+SETUVAR --export SYSTEMD_EDITOR:nvim
 SETUVAR VISUAL:nvim
 SETUVAR YSU_MESSAGE_POSITION:before
 SETUVAR __fish_initialized:4300
