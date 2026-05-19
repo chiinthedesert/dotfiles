@@ -30,7 +30,7 @@ scrollbar {
   box-shadow:
     0 19px 38px rgba(0, 0, 0, 0.3),
     0 15px 12px rgba(0, 0, 0, 0.22);
-  background: alpha(@window_bg_color, .8);
+  background: alpha(@window_bg_color, 0.8);
   padding: 15px;
   /* border: 1px solid darker(@accent_bg_color); */
 }
@@ -196,6 +196,7 @@ child:selected .item-box {
   font-style: italic;
 }
 
-.preview-content.archlinuxpkgs, .preview-content.dnfpackages {
+.preview-content.archlinuxpkgs,
+.preview-content.dnfpackages {
   font-family: monospace;
 }
