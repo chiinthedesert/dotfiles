@@ -7,6 +7,25 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              globals = { "vim", "hl" },
+            },
+            workspace = {
+              checkThirdParty = false,
+              library = {
+                vim.env.VIMRUNTIME,
+                "/usr/share/hypr/stubs",
+              },
+            },
+          },
+        },
+      })
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("basedpyright")
       vim.lsp.enable("html")
