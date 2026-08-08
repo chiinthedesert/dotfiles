@@ -1,0 +1,225 @@
+config_version = 8
+
+[accessibility]
+ui_scale = 1.1000000089406967
+
+[bar]
+order = [ "left" ]
+
+    [bar.left]
+    background_opacity = 0.79999998211860657
+    capsule_fill = "surface"
+    capsule_opacity = 0.79999998211860657
+    capsule_radius = 2
+    capsule_thickness = 0.79999998584389687
+    concave_edge_corners = false
+    end = [ "tray", "caffeine", "group:g3", "group:g2", "group:g1" ]
+    font_family = "JetBrainsMono Nerd Font"
+    hover_highlight = false
+    margin_ends = 0
+    position = "left"
+    radius = 0
+    scale = 1.2000000104308128
+    start = [ "workspaces" ]
+    thickness = 36
+
+        [[bar.left.capsule_group]]
+        enabled = true
+        fill = "surface"
+        id = "g1"
+        members = [ "cpu", "temp", "ram" ]
+        opacity = 0.79999995231628418
+        padding = 6.0
+        radius = 2.0
+
+        [[bar.left.capsule_group]]
+        enabled = true
+        fill = "surface"
+        id = "g2"
+        members = [ "volume", "brightness", "battery" ]
+        opacity = 0.79999995231628418
+        padding = 6.0
+        radius = 2.0
+
+        [[bar.left.capsule_group]]
+        enabled = true
+        fill = "surface"
+        id = "g3"
+        members = [ "network", "bluetooth" ]
+        opacity = 0.79999995231628418
+        padding = 6.0
+        radius = 2.0
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[dock]
+active_monitor_only = true
+auto_hide = true
+background_opacity = 0.79999998211860657
+border_width = 2.0
+cross_axis_padding = 2
+enabled = true
+icon_size = 32
+item_spacing = 0
+main_axis_padding = 4
+margin_edge = 8
+radius = 4
+reserve_space = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 800.0
+    cy = 718.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[shell]
+avatar_path = "/home/chi/Pictures/icon.jpg"
+corner_radius_scale = 0.15000000223517418
+font_family = "Inter"
+lang = "en"
+
+    [shell.animation]
+    enabled = false
+
+    [shell.panel]
+    clipboard_position = "auto"
+    control_center_placement = "floating"
+    open_near_click_clipboard = true
+
+[theme]
+source = "wallpaper"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "hyprland", "kitty", "qt" ]
+
+[wallpaper]
+directory = "/home/chi/Pictures/Wallpapers"
+
+    [wallpaper.default]
+    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+
+    [wallpaper.last]
+    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/chi/Pictures/Wallpapers/wallhaven_p9mvjj.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+
+[widget.active_window]
+enabled = false
+
+[widget.battery]
+show_label = false
+
+[widget.brightness]
+show_label = false
+
+[widget.caffeine]
+capsule = true
+
+[widget.clock]
+anchor = true
+capsule_foreground = "tertiary"
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 700
+
+[widget.cpu]
+show_label = false
+
+[widget.network]
+show_label = false
+
+[widget.notifications]
+enabled = false
+
+[widget.ram]
+show_label = false
+
+[widget.session]
+enabled = false
+
+[widget.temp]
+show_label = false
+
+[widget.tray]
+detached_panel = true
+drawer = true
+drawer_columns = 4
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+active_pill_size = 1.6000000000000001
+anchor = true
+capsule_fill = "surface"
+focused_color = "tertiary"
+focused_output_only = true
+font_family = "JetBrainsMono Nerd Font"
+scale = 1.1500000000000001
