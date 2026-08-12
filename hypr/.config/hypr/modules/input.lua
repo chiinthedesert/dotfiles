@@ -29,6 +29,12 @@ hl.gesture({
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-  name        = "epic-mouse-v1",
-  sensitivity = -0.5,
+  name        = "razer-razer-deathadder-essential-1",
+  sensitivity = -0.6,
+  -- accel_profile = "flat"
+})
+hl.device({
+  name        = "razer-razer-deathadder-essential",
+  sensitivity = -0.6,
+  -- accel_profile = "flat"
 })
