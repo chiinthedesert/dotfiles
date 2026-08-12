@@ -18,7 +18,7 @@ return {
       "<leader>tm",
       "<cmd>VietnameseMethod<CR>",
       mode = "n",
-      desc = "Switch Vietnamese Input Method"
+      desc = "Toggle Vietnamese Input Method"
     }
   }
 }
