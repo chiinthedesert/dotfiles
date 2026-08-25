@@ -25,7 +25,7 @@ return {
         html = { "prettierd" },
         css = { "prettierd" },
         json = { "prettierd" },
-        python = { "ruff" },
+        python = { "ruff_organize_imports", "ruff_format" },
       },
       -- Set default options
       default_format_opts = {
