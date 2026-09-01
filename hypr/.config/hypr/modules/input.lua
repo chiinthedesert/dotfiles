@@ -38,3 +38,8 @@ hl.device({
   sensitivity = -0.6,
   -- accel_profile = "flat"
 })
+hl.device({
+  name        = "logitech-usb-receiver-mouse",
+  sensitivity = -0.2,
+  -- accel_profile = "flat"
+})

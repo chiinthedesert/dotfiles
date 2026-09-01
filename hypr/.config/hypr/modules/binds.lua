@@ -1,16 +1,16 @@
 local terminal = "kitty"
-local menu     = "noctalia msg panel-toggle launcher"
+local menu = "noctalia msg panel-toggle launcher"
 
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
-local mod      = "SUPER"
+local mod = "SUPER"
 
 hl.bind(mod .. "+ Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. "+ F", hl.dsp.window.fullscreen())
 hl.bind(mod .. "+ Q", hl.dsp.window.close())
 hl.bind(mod .. "+ SHIFT + E", hl.dsp.exit())
--- hl.bind(mod .. "+ E", hl.dsp.exec_cmd("kitty -e yazi"))
+hl.bind(mod .. "+ E", hl.dsp.exec_cmd("kitty -e yazi"))
 hl.bind(mod .. "+ V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. "+ Space", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. "+ P", hl.dsp.window.pseudo())
@@ -29,13 +29,12 @@ hl.bind(mod .. "+ K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. "+ J", hl.dsp.focus({ direction = "down" }))
 
 for i = 1, 9 do
-  hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))
-  hl.bind(mod .. "+ SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+	hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))
+	hl.bind(mod .. "+ SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mod .. "+ S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mod .. "+ SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
 
 hl.bind(mod .. "+ mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. "+ mouse:273", hl.dsp.window.resize(), { mouse = true })

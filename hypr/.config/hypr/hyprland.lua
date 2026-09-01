@@ -1,6 +1,6 @@
 require("modules.monitors")
-require("modules.autostart")
 require("modules.env")
+require("modules.autostart")
 require("modules.look")
 require("modules.input")
 require("modules.misc")

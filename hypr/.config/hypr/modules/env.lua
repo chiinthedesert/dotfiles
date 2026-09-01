@@ -14,7 +14,6 @@ hl.env("HYPRSHOT_DIR", "/home/chi/Pictures/Screenshots")
 -- Qt
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
 -- Toolkit backends
@@ -26,7 +25,6 @@ hl.env("CLUTTER_BACKEND", "wayland")
 -- Fcitx5 Input Method setup
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
-hl.env("QT_IM_MODULES", "wayland;fcitx")
 hl.env("INPUT_METHOD", "fcitx")
 hl.env("SDL_IM_MODULE", "fcitx")
 
