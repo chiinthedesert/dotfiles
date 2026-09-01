@@ -1,4 +1,4 @@
-config_version = 8
+config_version = 13
 
 [accessibility]
 ui_scale = 1.1000000089406967
@@ -14,7 +14,6 @@ order = [ "left" ]
     capsule_thickness = 0.79999998584389687
     concave_edge_corners = false
     end = [ "tray", "caffeine", "group:g3", "group:g2", "group:g1" ]
-    font_family = "JetBrainsMono Nerd Font"
     hover_highlight = false
     margin_ends = 0
     position = "left"
@@ -24,6 +23,8 @@ order = [ "left" ]
     thickness = 36
 
         [[bar.left.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
         enabled = true
         fill = "surface"
         id = "g1"
@@ -33,6 +34,8 @@ order = [ "left" ]
         radius = 2.0
 
         [[bar.left.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
         enabled = true
         fill = "surface"
         id = "g2"
@@ -42,6 +45,8 @@ order = [ "left" ]
         radius = 2.0
 
         [[bar.left.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
         enabled = true
         fill = "surface"
         id = "g3"
@@ -97,7 +102,7 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@WAYLAND-1", "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -110,6 +115,8 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
     cx = 960.0
     cy = 898.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -129,12 +136,41 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 234.5
+    cy = 356.0
+    output = "WAYLAND-1"
+    placement_height = 0.0
+    placement_width = 0.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 800.0
+    cx = 800.00006103515625
     cy = 718.0
     output = "eDP-1"
+    placement_height = 900.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "login_box"
 
@@ -154,6 +190,12 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[plugin_settings."blackbartblues/audio-switcher"]
+show_percentage = false
+
+[plugins]
+enabled = [ "blackbartblues/audio-switcher" ]
+
 [shell]
 avatar_path = "/home/chi/Pictures/icon.jpg"
 corner_radius_scale = 0.15000000223517418
@@ -162,6 +204,12 @@ lang = "en"
 
     [shell.animation]
     enabled = false
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.launcher]
+    categories = false
 
     [shell.panel]
     clipboard_position = "auto"
@@ -172,22 +220,23 @@ lang = "en"
 source = "wallpaper"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "hyprland", "kitty", "qt" ]
+    builtin_ids = [ "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt" ]
+    community_ids = [ "fastfetch", "hyprtoolkit", "yazi" ]
 
 [wallpaper]
 directory = "/home/chi/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/chi/Pictures/Wallpapers/5c5578dc5e7f5b8c3ce6cbdb3d5ae11d.jpg"
+    path = "/home/chi/Pictures/Wallpapers/Bride-for-Rip-Van-Winkle-1-6616-1691660991.webp"
 
     [wallpaper.last]
-    path = "/home/chi/Pictures/Wallpapers/5c5578dc5e7f5b8c3ce6cbdb3d5ae11d.jpg"
+    path = "/home/chi/Pictures/Wallpapers/Bride-for-Rip-Van-Winkle-1-6616-1691660991.webp"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/chi/Pictures/Wallpapers/5c5578dc5e7f5b8c3ce6cbdb3d5ae11d.jpg"
+    path = "/home/chi/Pictures/Wallpapers/Bride-for-Rip-Van-Winkle-1-6616-1691660991.webp"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/chi/Pictures/Wallpapers/5c5578dc5e7f5b8c3ce6cbdb3d5ae11d.jpg"
+    path = "/home/chi/Pictures/Wallpapers/Bride-for-Rip-Van-Winkle-1-6616-1691660991.webp"
 
 [widget.active_window]
 enabled = false
@@ -209,6 +258,7 @@ font_weight = 700
 
 [widget.cpu]
 show_label = false
+show_value = false
 
 [widget.network]
 show_label = false
@@ -218,12 +268,14 @@ enabled = false
 
 [widget.ram]
 show_label = false
+show_value = false
 
 [widget.session]
 enabled = false
 
 [widget.temp]
 show_label = false
+show_value = false
 
 [widget.tray]
 detached_panel = true
@@ -241,3 +293,4 @@ focused_color = "tertiary"
 focused_output_only = true
 font_family = "JetBrainsMono Nerd Font"
 scale = 1.1500000000000001
+show_labels = false
