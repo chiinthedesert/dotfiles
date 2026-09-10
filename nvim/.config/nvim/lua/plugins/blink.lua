@@ -25,6 +25,9 @@ return {
 
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      -- per_filetype = {
+      --   markdown = { "lsp", "dictionary" },
+      -- },
     },
 
     fuzzy = { implementation = "prefer_rust_with_warning" },

@@ -13,16 +13,21 @@ return {
     lazy = false,
 
     -- Completion for `blink.cmp`
-    -- dependencies = { "saghen/blink.cmp" },
+    dependencies = { "saghen/blink.cmp" },
   },
 
   {
-    "3rd/image.nvim",
-    build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+    "folke/snacks.nvim",
+    ---@type snacks.Config
     opts = {
-      processor = "magick_cli",
-      max_width = 100,
-      max_height = 12,
-    }
+      image = {
+        resolve = function(path, src)
+          local api = require("obsidian.api")
+          if api.path_is_note(path) then
+            return api.resolve_attachment_path(src)
+          end
+        end,
+      },
+    },
   },
 }

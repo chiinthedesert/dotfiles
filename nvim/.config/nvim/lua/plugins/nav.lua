@@ -28,6 +28,7 @@ return {
     ---@module "fzf-lua"
     ---@type fzf-lua.Config|{}
     ---@diagnostic disable: missing-fields
+
     opts = {
       winopts = {
         border = "single",

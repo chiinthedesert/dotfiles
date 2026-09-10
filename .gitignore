@@ -1,2 +1,5 @@
-.config/zsh/.histfile
-.config/zsh/.zcompdump*
+# Ignore everything inside the Noctalia state folder
+noctalia/.local/state/noctalia/*
+
+# Un-ignore settings.toml so Git tracks it directly
+!noctalia/.local/state/noctalia/settings.toml
