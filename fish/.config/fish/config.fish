@@ -5,3 +5,6 @@ fish_vi_key_bindings
 source ~/.config/fish/aliases.fish
 
 zoxide init fish | source
+
+# uv
+fish_add_path "/home/chi/.local/bin"
