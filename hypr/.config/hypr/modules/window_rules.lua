@@ -10,6 +10,7 @@ for i = 1, 6 do
     workspace = tostring(i),
     monitor = "HDMI-A-1",
     default = (i == 1),
+    persistent = true,
   })
 end
 
@@ -17,14 +18,15 @@ hl.workspace_rule({
   workspace = "7",
   monitor = "eDP-1",
   default = true,
+  persistent = true,
 })
 
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
   -- Ignore maximize requests from all apps. You'll probably like this.
-  name           = "suppress-maximize-events",
-  match          = { class = ".*" },
+  name = "suppress-maximize-events",
+  match = { class = ".*" },
 
   suppress_event = "maximize",
 })
@@ -32,14 +34,14 @@ suppressMaximizeRule:set_enabled(true)
 
 hl.window_rule({
   -- Fix some dragging issues with XWayland
-  name     = "fix-xwayland-drags",
-  match    = {
-    class      = "^$",
-    title      = "^$",
-    xwayland   = true,
-    float      = true,
+  name = "fix-xwayland-drags",
+  match = {
+    class = "^$",
+    title = "^$",
+    xwayland = true,
+    float = true,
     fullscreen = false,
-    pin        = false,
+    pin = false,
   },
 
   no_focus = true,
@@ -55,9 +57,9 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-  name  = "move-hyprland-run",
+  name = "move-hyprland-run",
   match = { class = "hyprland-run" },
 
-  move  = "20 monitor_h-120",
+  move = "20 monitor_h-120",
   float = true,
 })

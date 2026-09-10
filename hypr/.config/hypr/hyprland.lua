@@ -27,3 +27,6 @@ require("modules.window_rules")
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
+
+-- HyprMod managed settings
+require("hyprland-gui")

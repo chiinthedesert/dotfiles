@@ -14,27 +14,40 @@ hl.bind(mod .. "+ E", hl.dsp.exec_cmd("kitty -e yazi"))
 hl.bind(mod .. "+ V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. "+ Space", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. "+ P", hl.dsp.window.pseudo())
--- hl.bind(mod .. "+ semicolon", hl.dsp.layout.("togglesplit"))
-
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m window"))
-hl.bind(mod .. "+ PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
-
-hl.bind(mod .. "+ N", hl.dsp.exec_cmd("hyprsunset -t 4500 -g 70%"))
-hl.bind(mod .. "+ SHIFT + N", hl.dsp.exec_cmd("pkill hyprsunset"))
-hl.bind(mod .. "+ SHIFT + C", hl.dsp.exec_cmd("hyprshade toggle grayscale"))
 
 hl.bind(mod .. "+ H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. "+ L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. "+ K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. "+ J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mod .. "+ left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mod .. "+ right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mod .. "+ up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mod .. "+ down", hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mod .. "+ U", hl.dsp.layout("colresize +conf"))
+hl.bind(mod .. "+ O", hl.dsp.layout("colresize -conf"))
+
+hl.bind(mod .. "+ period", hl.dsp.layout("move +col"))
+hl.bind(mod .. "+ comma", hl.dsp.layout("move -col"))
+hl.bind(mod .. "+ SHIFT + period", hl.dsp.layout("swapcol r"))
+hl.bind(mod .. "+ SHIFT + comma", hl.dsp.layout("swapcol l"))
+hl.bind(mod .. "+ bracketleft", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(mod .. "+ bracketright", hl.dsp.layout("consume_or_expel next"))
+
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m window"))
+hl.bind(mod .. "+ PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 
 for i = 1, 9 do
-	hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))
-	hl.bind(mod .. "+ SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+  hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind(mod .. "+ SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mod .. "+ S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mod .. "+ SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+
+hl.bind(mod .. "+ N", hl.dsp.exec_cmd("hyprsunset -t 4500 -g 70%"))
+hl.bind(mod .. "+ SHIFT + N", hl.dsp.exec_cmd("pkill hyprsunset"))
+hl.bind(mod .. "+ SHIFT + C", hl.dsp.exec_cmd("hyprshade toggle grayscale"))
 
 hl.bind(mod .. "+ mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. "+ mouse:273", hl.dsp.window.resize(), { mouse = true })
