@@ -1,4 +1,4 @@
-config_version = 13
+config_version = 14
 
 [accessibility]
 ui_scale = 1.1000000089406967
@@ -13,7 +13,7 @@ order = [ "left" ]
     capsule_radius = 2
     capsule_thickness = 0.79999998584389687
     concave_edge_corners = false
-    end = [ "tray", "caffeine", "group:g3", "group:g2", "group:g1" ]
+    end = [ "tray", "group:g4", "group:g3", "group:g2", "group:g1" ]
     hover_highlight = false
     margin_ends = 0
     position = "left"
@@ -51,6 +51,17 @@ order = [ "left" ]
         fill = "surface"
         id = "g3"
         members = [ "network", "bluetooth" ]
+        opacity = 0.79999995231628418
+        padding = 6.0
+        radius = 2.0
+
+        [[bar.left.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface"
+        id = "g4"
+        members = [ "caffeine", "clipboard" ]
         opacity = 0.79999995231628418
         padding = 6.0
         radius = 2.0
@@ -166,11 +177,11 @@ widget_order = [ "lockscreen-login-box@WAYLAND-1", "lockscreen-login-box@HDMI-A-
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 800.00006103515625
-    cy = 718.0
+    cx = 960.0001220703125
+    cy = 861.60003662109375
     output = "eDP-1"
-    placement_height = 900.0
-    placement_width = 1600.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -194,7 +205,7 @@ widget_order = [ "lockscreen-login-box@WAYLAND-1", "lockscreen-login-box@HDMI-A-
 show_percentage = false
 
 [plugins]
-enabled = [ "blackbartblues/audio-switcher" ]
+enabled = [ "noctalia/kaomoji" ]
 
 [shell]
 avatar_path = "/home/chi/Pictures/icon.jpg"
@@ -221,7 +232,7 @@ source = "wallpaper"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt" ]
-    community_ids = [ "fastfetch", "hyprtoolkit", "yazi" ]
+    community_ids = [ "fastfetch", "fcitx5", "hyprtoolkit", "yazi" ]
 
 [wallpaper]
 directory = "/home/chi/Pictures/Wallpapers"
@@ -249,6 +260,9 @@ show_label = false
 
 [widget.caffeine]
 capsule = true
+
+[widget.clipboard]
+glyph = "clipboard-search"
 
 [widget.clock]
 anchor = true
@@ -281,6 +295,7 @@ show_value = false
 detached_panel = true
 drawer = true
 drawer_columns = 4
+match_adjacent_spacing = true
 
 [widget.volume]
 show_label = false
@@ -289,6 +304,7 @@ show_label = false
 active_pill_size = 1.6000000000000001
 anchor = true
 capsule_fill = "surface"
+empty_color = "on_secondary"
 focused_color = "tertiary"
 focused_output_only = true
 font_family = "JetBrainsMono Nerd Font"
