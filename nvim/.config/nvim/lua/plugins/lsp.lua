@@ -26,11 +26,32 @@ return {
           },
         },
       })
+      local vue_plugin_path = vim.fn.stdpath("data")
+        .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+      vim.lsp.config("vtsls", {
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = vue_plugin_path,
+                  languages = { "vue" },
+                  configNamespace = "typescript",
+                  enableForWorkspaceTypeScriptVersions = true,
+                },
+              },
+            },
+          },
+        },
+      })
+
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("basedpyright")
-      vim.lsp.enable("html")
-      vim.lsp.enable("cssls")
-      vim.lsp.enable("ts_ls")
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("tombi")
+      vim.lsp.enable({ "vue_ls", "tailwindcss", "vtsls", "cssls", "html" })
     end,
   },
 

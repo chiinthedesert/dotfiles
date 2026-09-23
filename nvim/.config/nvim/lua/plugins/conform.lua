@@ -3,17 +3,7 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
-    keys = {
-      {
-        -- Customize or remove this keymap to your liking
-        "<leader>fm",
-        function()
-          require("conform").format({ async = true })
-        end,
-        mode = "",
-        desc = "format buffer",
-      },
-    },
+    keys = {},
     -- This will provide type hinting with LuaLS
     ---@module "conform"
     ---@type conform.setupOpts
@@ -21,11 +11,15 @@ return {
       -- Define your formatters
       formatters_by_ft = {
         lua = { "stylua" },
+        vue = { "prettierd" },
         javascript = { "prettierd" },
         html = { "prettierd" },
         css = { "prettierd" },
         json = { "prettierd" },
         python = { "ruff_organize_imports", "ruff_format" },
+        c = { "clang-format" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
       },
       -- Set default options
       default_format_opts = {

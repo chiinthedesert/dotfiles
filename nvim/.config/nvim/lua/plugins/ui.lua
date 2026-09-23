@@ -1,22 +1,15 @@
 return {
   {
-    "ellisonleao/gruvbox.nvim",
-    enabled = true,
-    priority = 1000,
-    opts = {
-      transparent_mode = true,
-    },
-    config = function(_, opts)
-      require("gruvbox").setup(opts)
-      vim.cmd("colorscheme gruvbox")
-    end,
-  },
-  {
-    "p00f/alabaster.nvim",
-    enabled = false,
+    "zenbones-theme/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme alabaster")
+      vim.g.zenbones_darken_comments = 45
+      vim.cmd.colorscheme("forestbones")
     end,
   },
 
@@ -24,7 +17,7 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        theme = "gruvbox",
+        theme = "auto",
       },
     },
   },
