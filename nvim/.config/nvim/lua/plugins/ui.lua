@@ -82,9 +82,4 @@ return {
       "rcarriga/nvim-notify",
     },
   },
-
-  {
-    "xiyaowong/transparent.nvim",
-    enabled = false,
-  },
 }
