@@ -1,0 +1,39 @@
+#!/bin/sh
+
+export BEMENU_BACKEND=wayland
+
+exec j4-dmenu-desktop \
+  --no-generic \
+  --dmenu="bemenu \
+    --center \
+    --width-factor 0.29 \
+    --list 7 \
+    --line-height 28 \
+    --border 2 \
+    --border-radius 0 \
+    --fn 'JetBrainsMono Nerd Font SemiBold 12' \
+    --prompt 'app' \
+    --ignorecase \
+    --single-instance \
+    --wrap \
+    --scrollbar autohide \
+    --tb '#2C343A' \
+    --tf '#A9C181' \
+    --fb '#2C343A' \
+    --ff '#E7DCC4' \
+    --cb '#E7DCC4' \
+    --cf '#2C343A' \
+    --nb '#2C343A' \
+    --nf '#E7DCC4' \
+    --ab '#45525C' \
+    --af '#E7DCC4' \
+    --hb '#A9C181' \
+    --hf '#2C343A' \
+    --sb '#7FBCB4' \
+    --sf '#2C343A' \
+    --scb '#2C343A' \
+    --scf '#45525C' \
+    --bdr '#45525C'" \
+  --term kitty \
+  --term-mode kitty \
+  --case-insensitive
