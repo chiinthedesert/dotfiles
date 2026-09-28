@@ -14,12 +14,12 @@ for i = 1, 6 do
   })
 end
 
-hl.workspace_rule({
-  workspace = "7",
-  monitor = "eDP-1",
-  default = true,
-  persistent = true,
-})
+-- hl.workspace_rule({
+--   workspace = "7",
+--   monitor = "eDP-1",
+--   default = true,
+--   persistent = true,
+-- })
 
 -- Example window rules that are useful
 

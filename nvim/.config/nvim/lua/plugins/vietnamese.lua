@@ -12,7 +12,7 @@ return {
       "<leader>tv",
       "<cmd>VietnameseToggle<CR>",
       mode = "n",
-      desc = "Toggle Vietnamese IME",
+      desc = "toggle vietnamese",
     },
   },
 }

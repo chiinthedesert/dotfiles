@@ -9,3 +9,9 @@ hl.config({
     allow_session_lock_restore = true,
   },
 })
+
+hl.config({
+  xwayland = {
+    force_zero_scaling = true,
+  },
+})

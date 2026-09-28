@@ -1,5 +1,4 @@
 local terminal = "kitty"
-local menu = "noctalia msg panel-toggle launcher"
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -8,11 +7,11 @@ local mod = "SUPER"
 
 hl.bind(mod .. "+ Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. "+ F", hl.dsp.window.fullscreen())
-hl.bind(mod .. "+ Q", hl.dsp.window.close())
+hl.bind(mod .. "+ X", hl.dsp.window.close())
 hl.bind(mod .. "+ SHIFT + E", hl.dsp.exit())
-hl.bind(mod .. "+ E", hl.dsp.exec_cmd("kitty -e yazi"))
+hl.bind(mod .. "+ E", hl.dsp.exec_cmd("kitty -e fish -ic yazi"))
 hl.bind(mod .. "+ V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mod .. "+ Space", hl.dsp.exec_cmd(menu))
+-- hl.bind(mod .. "+ Space", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. "+ P", hl.dsp.window.pseudo())
 
 hl.bind(mod .. "+ H", hl.dsp.focus({ direction = "left" }))

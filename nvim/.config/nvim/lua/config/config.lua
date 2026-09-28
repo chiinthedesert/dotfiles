@@ -10,7 +10,7 @@ vim.o.signcolumn = "yes"
 vim.o.cursorline = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "»", precedes = "«" }
-vim.o.showmode = false
+vim.o.showmode = true
 vim.o.winborder = "single"
 
 vim.o.breakindent = true

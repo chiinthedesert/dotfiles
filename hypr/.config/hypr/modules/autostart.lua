@@ -7,7 +7,6 @@
 hl.on("hyprland.start", function()
   -- hl.exec_cmd("elephant")
   -- hl.exec_cmd("walker --gapplication-service")
-  hl.exec_cmd("noctalia")
   hl.dispatch(hl.dsp.focus({ workspace = 1 }))
   hl.exec_cmd("/usr/lib/mate-polkit/polkit-mate-authentication-agent-1")
   hl.exec_cmd("fcitx5 -d")

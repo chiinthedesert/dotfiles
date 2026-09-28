@@ -1,14 +1,5 @@
 return {
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    enabled = false,
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
-
-  {
     "OXY2DEV/markview.nvim",
     lazy = false,
     -- Completion for `blink.cmp`
@@ -33,6 +24,15 @@ return {
             },
           },
         },
+      },
+    },
+    keys = {
+      {
+        "<leader>mt",
+        function()
+          require("markview.extras.checkboxes").toggler.init()
+        end,
+        desc = "toggle markdown task",
       },
     },
   },

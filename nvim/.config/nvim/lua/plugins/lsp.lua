@@ -48,7 +48,8 @@ return {
       })
 
       vim.lsp.enable("lua_ls")
-      vim.lsp.enable("basedpyright")
+      vim.lsp.enable("ty")
+      vim.lsp.enable("ruff")
       vim.lsp.enable("clangd")
       vim.lsp.enable("tombi")
       vim.lsp.enable({ "vue_ls", "tailwindcss", "vtsls", "cssls", "html" })

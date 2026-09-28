@@ -4,9 +4,6 @@ return {
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     keys = {},
-    -- This will provide type hinting with LuaLS
-    ---@module "conform"
-    ---@type conform.setupOpts
     opts = {
       -- Define your formatters
       formatters_by_ft = {
@@ -34,6 +31,31 @@ return {
         },
         stylua = {
           prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+        },
+        -- Added: fix Ruff formatting for Jupytext notebooks
+        ruff_format = {
+          args = function(_, ctx)
+            local filename = ctx.filename
+
+            if filename:match("%.ipynb$") then
+              filename = filename .. ".py"
+            end
+
+            return { "format", "--stdin-filename", filename, "-" }
+          end,
+        },
+
+        -- Added: fix Ruff import sorting for Jupytext notebooks
+        ruff_organize_imports = {
+          args = function(_, ctx)
+            local filename = ctx.filename
+
+            if filename:match("%.ipynb$") then
+              filename = filename .. ".py"
+            end
+
+            return { "check", "--select", "I", "--fix", "--stdin-filename", filename, "-" }
+          end,
         },
       },
     },
