@@ -1,0 +1,10 @@
+DetailRow DetailRow.qml
+MenuEntry MenuEntry.qml
+MenuLine MenuLine.qml
+MenuSeparator MenuSeparator.qml
+MenuText MenuText.qml
+SidebarButton SidebarButton.qml
+SidebarContent SidebarContent.qml
+StatusButton StatusButton.qml
+TrayButton TrayButton.qml
+WifiNetworkRow WifiNetworkRow.qml

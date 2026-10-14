@@ -1,0 +1,3 @@
+BatteryPopup BatteryPopup.qml
+TrayMenuPopup TrayMenuPopup.qml
+WifiPopup WifiPopup.qml

@@ -1,8 +1,8 @@
-
 alias cp 'cp -i'                   # Confirm before overwriting a file
 alias mv 'mv -i'                   # Confirm before overwriting
 alias rm 'rm -i'                   # Confirm before deleting
-alias .. 'cd ..'
+alias .. 'z ..'
+alias c 'clear -x'
 
 alias tr 'trash-put'
 alias trr 'trash-restore'
