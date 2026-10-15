@@ -52,6 +52,7 @@ return {
       vim.lsp.enable("ruff")
       vim.lsp.enable("clangd")
       vim.lsp.enable("tombi")
+      vim.lsp.enable("tinymist")
       vim.lsp.enable({ "vue_ls", "tailwindcss", "vtsls", "cssls", "html" })
     end,
   },
