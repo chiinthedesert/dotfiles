@@ -2,7 +2,7 @@
 
 exec j4-dmenu-desktop \
   --no-generic \
-  --dmenu="$HOME/.local/bin/bemenu-themed --prompt app" \
+  --dmenu="$HOME/.local/bin/bemenu-themed --prompt 😢" \
   --term kitty \
   --term-mode kitty \
   --case-insensitive
