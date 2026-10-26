@@ -11,7 +11,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
 
     init = function()
-      -- disable built-in ftplugin mappings to avoid conflicts
+      -- Disable built-in ftplugin mappings to prevent filetype conflicts
       vim.g.no_plugin_maps = true
     end,
 
@@ -34,7 +34,9 @@ return {
     end,
 
     keys = {
-      -- functions
+      -- SELECT TEXTOBJECTS --
+
+      -- Functions (#let blocks / definitions)
       {
         "af",
         function()
@@ -52,25 +54,61 @@ return {
         desc = "inside function",
       },
 
-      -- classes
+      -- Math blocks ($ ... $)
       {
-        "ac",
+        "am",
         function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+          require("nvim-treesitter-textobjects.select").select_textobject("@math.outer", "textobjects")
         end,
         mode = { "x", "o" },
-        desc = "around class",
+        desc = "around math block",
       },
       {
-        "ic",
+        "im",
         function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+          require("nvim-treesitter-textobjects.select").select_textobject("@math.inner", "textobjects")
         end,
         mode = { "x", "o" },
-        desc = "inside class",
+        desc = "inside math block",
       },
 
-      -- parameters
+      -- Headings (= Title line only)
+      {
+        "ah",
+        function()
+          require("nvim-treesitter-textobjects.select").select_textobject("@heading.outer", "textobjects")
+        end,
+        mode = { "x", "o" },
+        desc = "around heading line",
+      },
+      {
+        "ih",
+        function()
+          require("nvim-treesitter-textobjects.select").select_textobject("@heading.inner", "textobjects")
+        end,
+        mode = { "x", "o" },
+        desc = "inside heading title",
+      },
+
+      -- Sections (Full section container)
+      {
+        "as",
+        function()
+          require("nvim-treesitter-textobjects.select").select_textobject("@section.outer", "textobjects")
+        end,
+        mode = { "x", "o" },
+        desc = "around section container",
+      },
+      {
+        "is",
+        function()
+          require("nvim-treesitter-textobjects.select").select_textobject("@section.inner", "textobjects")
+        end,
+        mode = { "x", "o" },
+        desc = "inside section content",
+      },
+
+      -- Arguments / Parameters
       {
         "aa",
         function()
@@ -88,55 +126,11 @@ return {
         desc = "inside argument",
       },
 
-      -- conditionals
-      {
-        "ai",
-        function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@conditional.outer", "textobjects")
-        end,
-        mode = { "x", "o" },
-        desc = "around conditional",
-      },
-      {
-        "ii",
-        function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@conditional.inner", "textobjects")
-        end,
-        mode = { "x", "o" },
-        desc = "inside conditional",
-      },
+      -- MOVEMENT --
 
-      -- loops
+      -- Functions
       {
-        "al",
-        function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@loop.outer", "textobjects")
-        end,
-        mode = { "x", "o" },
-        desc = "around loop",
-      },
-      {
-        "il",
-        function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@loop.inner", "textobjects")
-        end,
-        mode = { "x", "o" },
-        desc = "inside loop",
-      },
-
-      -- local scope
-      {
-        "aS",
-        function()
-          require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
-        end,
-        mode = { "x", "o" },
-        desc = "around local scope",
-      },
-
-      -- function movement
-      {
-        "]m",
+        "]f",
         function()
           require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
         end,
@@ -144,7 +138,7 @@ return {
         desc = "next function",
       },
       {
-        "[m",
+        "[f",
         function()
           require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
         end,
@@ -152,25 +146,80 @@ return {
         desc = "previous function",
       },
 
-      -- class movement
+      -- Math expressions ($ ... $)
       {
-        "]]",
+        "]m",
         function()
-          require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects")
+          require("nvim-treesitter-textobjects.move").goto_next_start("@math.outer", "textobjects")
         end,
         mode = { "n", "x", "o" },
-        desc = "next class",
+        desc = "next math block",
       },
       {
-        "[[",
+        "[m",
         function()
-          require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+          require("nvim-treesitter-textobjects.move").goto_previous_start("@math.outer", "textobjects")
         end,
         mode = { "n", "x", "o" },
-        desc = "previous class",
+        desc = "previous math block",
       },
 
-      -- swap parameters
+      -- Headings
+      {
+        "]h",
+        function()
+          require("nvim-treesitter-textobjects.move").goto_next_start("@heading.outer", "textobjects")
+        end,
+        mode = { "n", "x", "o" },
+        desc = "next heading line",
+      },
+      {
+        "[h",
+        function()
+          require("nvim-treesitter-textobjects.move").goto_previous_start("@heading.outer", "textobjects")
+        end,
+        mode = { "n", "x", "o" },
+        desc = "previous heading line",
+      },
+
+      -- Sections
+      {
+        "]s",
+        function()
+          require("nvim-treesitter-textobjects.move").goto_next_start("@section.outer", "textobjects")
+        end,
+        mode = { "n", "x", "o" },
+        desc = "next section block",
+      },
+      {
+        "[s",
+        function()
+          require("nvim-treesitter-textobjects.move").goto_previous_start("@section.outer", "textobjects")
+        end,
+        mode = { "n", "x", "o" },
+        desc = "previous section block",
+      },
+
+      -- Code / Raw blocks
+      {
+        "]c",
+        function()
+          require("nvim-treesitter-textobjects.move").goto_next_start("@code.outer", "textobjects")
+        end,
+        mode = { "n", "x", "o" },
+        desc = "next code block",
+      },
+      {
+        "[c",
+        function()
+          require("nvim-treesitter-textobjects.move").goto_previous_start("@code.outer", "textobjects")
+        end,
+        mode = { "n", "x", "o" },
+        desc = "previous code block",
+      },
+
+      -- SWAP --
+
       {
         "<leader>sn",
         function()

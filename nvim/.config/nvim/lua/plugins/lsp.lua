@@ -26,6 +26,7 @@ return {
           },
         },
       })
+
       local vue_plugin_path = vim.fn.stdpath("data")
         .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
       vim.lsp.config("vtsls", {
@@ -47,6 +48,14 @@ return {
         },
       })
 
+      vim.lsp.config("tinymist", {
+        root_markers = { "main.typ", "typst.toml", ".git" },
+        settings = {
+          fontPaths = { "./fonts" },
+          formatterMode = "typstyle",
+        },
+      })
+
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("ty")
       vim.lsp.enable("ruff")
@@ -54,21 +63,6 @@ return {
       vim.lsp.enable("tombi")
       vim.lsp.enable("tinymist")
       vim.lsp.enable({ "vue_ls", "tailwindcss", "vtsls", "cssls", "html" })
-    end,
-  },
-
-  {
-    "mfussenegger/nvim-jdtls",
-    config = function()
-      vim.lsp.config("jdtls", {
-        root_dir = vim.fs.root(0, { "build.gradle", "settings.gradle", ".git", "gradlew" }),
-        settings = {
-          java = {
-            -- Custom eclipse.jdt.ls options go here
-          },
-        },
-      })
-      vim.lsp.enable("jdtls")
     end,
   },
 }

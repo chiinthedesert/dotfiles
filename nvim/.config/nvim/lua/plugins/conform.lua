@@ -44,8 +44,6 @@ return {
             return { "format", "--stdin-filename", filename, "-" }
           end,
         },
-
-        -- Added: fix Ruff import sorting for Jupytext notebooks
         ruff_organize_imports = {
           args = function(_, ctx)
             local filename = ctx.filename
