@@ -37,11 +37,11 @@ hl.bind(mod .. "+ SHIFT + period", hl.dsp.layout("swapcol r"))
 hl.bind(mod .. "+ SHIFT + comma", hl.dsp.layout("swapcol l"))
 
 hl.bind(mod .. "+ bracketleft", hl.dsp.layout("consume_or_expel prev"))
-
 hl.bind(mod .. "+ bracketright", hl.dsp.layout("consume_or_expel next"))
 
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m window"))
 hl.bind(mod .. "+ PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(mod .. " + ALT + PRINT", hl.dsp.exec_cmd("sh -c 'hyprshot -m region --raw | swappy -f -'"))
 
 for i = 1, 9 do
   hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))

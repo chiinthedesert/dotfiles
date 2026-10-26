@@ -73,6 +73,6 @@ hl.config({
     explicit_column_widths = "0.333, 0.5, 0.667, 1.0",
     column_width = 0.667,
     direction = "right",
-    focus_fit_method = 0,
+    focus_fit_method = 1,
   },
 })

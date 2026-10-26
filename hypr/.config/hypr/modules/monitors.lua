@@ -5,7 +5,10 @@
 local external = "HDMI-A-1"
 local internal = "eDP-1"
 
--- external monitor
+-- true: keep both screens on
+-- false: disable laptop screen when external is connected
+local dual_monitor = false
+
 hl.monitor({
   output = external,
   mode = "highres@highrr",
@@ -23,15 +26,8 @@ local function internal_config(disabled)
   }
 end
 
--- On config load/reload, preserve the correct state immediately.
---
--- External already active -> internal starts disabled.
--- No external             -> internal starts enabled.
-hl.monitor(internal_config(hl.get_monitor(external) ~= nil))
-
 local function disable_internal()
-  -- Don't re-disable an already disabled monitor.
-  if hl.get_monitor(internal) ~= nil then
+  if not dual_monitor and hl.get_monitor(internal) ~= nil then
     hl.monitor({
       output = internal,
       disabled = true,
@@ -40,20 +36,26 @@ local function disable_internal()
 end
 
 local function enable_internal()
-  -- Don't re-enable an already enabled monitor.
   if hl.get_monitor(internal) == nil then
     hl.monitor(internal_config(false))
   end
 end
 
--- External plugged in -> laptop display off.
+-- Initial state
+hl.monitor(internal_config(not dual_monitor and hl.get_monitor(external) ~= nil))
+
+-- External plugged in
 hl.on("monitor.added", function(monitor)
   if monitor.name == external then
-    disable_internal()
+    if dual_monitor then
+      enable_internal()
+    else
+      disable_internal()
+    end
   end
 end)
 
--- External unplugged -> laptop display back on.
+-- External unplugged
 hl.on("monitor.removed", function(monitor)
   if monitor.name == external then
     enable_internal()
