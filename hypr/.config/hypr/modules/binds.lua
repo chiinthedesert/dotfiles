@@ -10,11 +10,10 @@ hl.bind(mod .. "+ Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. "+ F", hl.dsp.window.fullscreen())
 hl.bind(mod .. "+ X", hl.dsp.window.close())
 hl.bind(mod .. "+ SHIFT + E", hl.dsp.exit())
-hl.bind(mod .. "+ E", hl.dsp.exec_cmd("kitty -e fish -ic yazi"))
 hl.bind(mod .. "+ T", hl.dsp.exec_cmd("qs -c tray ipc call tray toggle"))
 hl.bind(mod .. "+ V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. "+ Space", hl.dsp.exec_cmd(menu))
-hl.bind("ALT + SHIFT + C", hl.dsp.exec_cmd("~/.local/bin/clipboard-history"))
+hl.bind("ALT + SHIFT + H", hl.dsp.exec_cmd("~/.local/bin/clipboard-history"))
 hl.bind(mod .. "+ P", hl.dsp.window.pseudo())
 
 hl.bind(mod .. "+ H", hl.dsp.focus({ direction = "left" }))
@@ -44,8 +43,8 @@ hl.bind(mod .. "+ PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mod .. " + ALT + PRINT", hl.dsp.exec_cmd("sh -c 'hyprshot -m region --raw | swappy -f -'"))
 
 for i = 1, 9 do
-  hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))
-  hl.bind(mod .. "+ SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mod .. "+ " .. i, hl.dsp.focus({ workspace = i }))
+    hl.bind(mod .. "+ SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind(mod .. "+ S", hl.dsp.workspace.toggle_special("magic"))
@@ -75,13 +74,13 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("swayosd-client --output-volume mute-to
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"))
 
 hl.bind(
-  "XF86MonBrightnessUp",
-  hl.dsp.exec_cmd("sh -c 'ddcutil --bus 2 setvcp 0x10 + 5; swayosd-client --brightness +5'")
+    "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("sh -c 'ddcutil --bus 2 setvcp 0x10 + 5; swayosd-client --brightness +5'")
 )
 
 hl.bind(
-  "XF86MonBrightnessDown",
-  hl.dsp.exec_cmd("sh -c 'ddcutil --bus 2 setvcp 0x10 - 5; swayosd-client --brightness -5'")
+    "XF86MonBrightnessDown",
+    hl.dsp.exec_cmd("sh -c 'ddcutil --bus 2 setvcp 0x10 - 5; swayosd-client --brightness -5'")
 )
 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))

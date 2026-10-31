@@ -1,0 +1,12 @@
+2026-09-28T14:42:48.852166658+07:00 INFO kanata-tray [version=v0.8.0, commit=28f2a309361e0199060b8a2f0e8122cca89239f9, build_date=Sun Nov 16 16:03:48 UTC 2025] starting
+2026-09-28T14:42:48.852556559+07:00 INFO kanata-tray config folder: /home/chi/.config/kanata-tray
+2026-09-28T14:42:48.852561519+07:00 INFO kanata-tray log folder: /home/chi/.config/kanata-tray/logs
+2026-09-28T14:42:48.853946826+07:00 INFO loading status icon: /home/chi/.config/kanata-tray/status_icons/default.png
+2026-09-28T14:42:48.854126383+07:00 INFO loading status icon: /home/chi/.config/kanata-tray/status_icons/crash.png
+2026-09-28T14:42:48.854283448+07:00 INFO loading status icon: /home/chi/.config/kanata-tray/status_icons/pause.png
+2026-09-28T14:42:48.855024367+07:00 INFO loading status icon: /home/chi/.config/kanata-tray/status_icons/live-reload.ico
+2026-09-28T14:42:49.28512199+07:00 INFO Running preset 'laptop'
+2026-09-28T14:42:49.285515776+07:00 INFO Running command: /usr/bin/kanata -c /home/chi/.config/kanata/simple.kbd --port 5829
+2026-09-28T14:42:49.286226077+07:00 INFO Started kanata (pid=1839)
+2026-09-28T14:42:51.788728036+07:00 INFO Connected to kanata via TCP (127.0.0.1:40004)
+2026-09-28T18:36:29.680916052+07:00 INFO Received exit signal (terminated)

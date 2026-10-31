@@ -1,0 +1,118 @@
+# wolf-alabaster-dark-mono-typographic.toml
+#
+# Alabaster Dark Mono palette and UI, with Zenwritten-inspired typography.
+# Keeps the inherited Alabaster grayscale colors and string/constant
+# background treatments. Adds bold/italic distinctions without introducing
+# Zenwritten's color palette.
+#
+# Requires wolf-alabaster-dark-mono.toml and its parent themes to be installed.
+
+inherits = "wolf-alabaster-dark-mono"
+
+# ---------------------------------------------------------------------------
+# COMMENTS
+# Zenwritten: comments are subdued and italic.
+# Keep Alabaster's comment-grey.
+# ---------------------------------------------------------------------------
+
+"comment" = { fg = "comment-grey", modifiers = ["italic"] }
+"comment.line" = { fg = "comment-grey", modifiers = ["italic"] }
+"comment.block" = { fg = "comment-grey", modifiers = ["italic"] }
+
+# ---------------------------------------------------------------------------
+# STRINGS AND CONSTANTS
+# Preserve Alabaster's subtle background highlighting.
+# Zenwritten uses italics for strings and most non-numeric constants.
+# ---------------------------------------------------------------------------
+
+"string" = { fg = "fg", bg = "string-bg", modifiers = ["italic"] }
+"string.regexp" = { fg = "fg", bg = "string-bg", modifiers = ["italic"] }
+
+# Zenwritten treats special string tokens/escapes as Special (bold).
+"string.special" = { fg = "fg", bg = "string-bg-dark", modifiers = ["bold"] }
+
+# General constants: Zenwritten's @constant uses bold Identifier styling.
+"constant" = { fg = "fg", bg = "string-bg", modifiers = ["bold"] }
+
+# Numbers stay upright in Zenwritten.
+"constant.numeric" = { fg = "fg", bg = "string-bg" }
+
+# Character literals and built-in constants use italic Constant styling.
+"constant.character" = { fg = "fg", bg = "string-bg", modifiers = ["italic"] }
+"constant.builtin" = { fg = "fg", bg = "string-bg", modifiers = ["italic"] }
+
+# Escaped/special character tokens follow Zenwritten's bold Special treatment.
+"constant.character.escape" = { fg = "fg", bg = "string-bg-dark", modifiers = ["bold"] }
+
+# ---------------------------------------------------------------------------
+# IDENTIFIERS, DEFINITIONS, TYPES
+# Functions stay plain. Built-ins and constructors are special/bold.
+# ---------------------------------------------------------------------------
+
+"function" = { fg = "fg" }
+"function.call" = { fg = "fg" }
+"function.method" = { fg = "fg" }
+"function.method.call" = { fg = "fg" }
+"function.builtin" = { fg = "fg", modifiers = ["bold"] }
+"function.macro" = { fg = "fg", modifiers = ["bold"] }
+
+"constructor" = { fg = "fg", modifiers = ["bold"] }
+
+# Keep all type names monochromatic. Explicitly override type.definition:
+# the inherited Alabaster base assigns definitions a blue accent.
+"type" = { fg = "fg" }
+"type.builtin" = { fg = "fg" }
+"type.definition" = { fg = "fg" }
+"type.parameter" = { fg = "fg" }
+"type.enum" = { fg = "fg" }
+"type.enum.variant" = { fg = "fg" }
+
+# Zenwritten uses italic Constant styling for modules/built-in variables.
+"namespace" = { fg = "fg", modifiers = ["italic"] }
+"variable.builtin" = { fg = "fg", modifiers = ["italic"] }
+
+# ---------------------------------------------------------------------------
+# KEYWORDS AND OPERATORS
+# Zenwritten emphasizes statements/operators with bold, not color.
+# Alabaster's punctuation-dark foreground is retained for operators.
+# ---------------------------------------------------------------------------
+
+"keyword" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control" = { fg = "fg", modifiers = ["bold"] }
+"keyword.operator" = { fg = "fg", modifiers = ["bold"] }
+"keyword.directive" = { fg = "fg", modifiers = ["bold"] }
+
+# Zenwritten maps storage keywords to Type rather than bold Statement.
+"keyword.storage" = { fg = "fg" }
+
+"attribute" = { fg = "fg", modifiers = ["bold"] }
+"label" = { fg = "fg", modifiers = ["bold"] }
+"tag" = { fg = "fg", modifiers = ["bold"] }
+"special" = { fg = "fg", modifiers = ["bold"] }
+
+# Retain Alabaster's dim punctuation color; only operators get bold emphasis.
+"punctuation" = { fg = "punctuation-dark" }
+"punctuation.bracket" = { fg = "punctuation-dark" }
+"punctuation.delimiter" = { fg = "punctuation-dark" }
+"punctuation.special" = { fg = "punctuation-dark" }
+"operator" = { fg = "punctuation-dark", modifiers = ["bold"] }
+
+# ---------------------------------------------------------------------------
+# MARKUP
+# Keep Alabaster's grayscale/background styling, adding typographic hierarchy.
+# ---------------------------------------------------------------------------
+
+"markup.heading" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.marker" = { fg = "punctuation-dark" }
+"markup.bold" = { fg = "fg", modifiers = ["bold"] }
+"markup.italic" = { fg = "fg", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "fg", modifiers = ["crossed_out"] }
+
+"markup.link.url" = { fg = "fg", bg = "string-bg", modifiers = ["italic"], underline = { style = "line" } }
+"markup.link.text" = { fg = "fg" }
+"markup.link.label" = { fg = "fg", modifiers = ["bold"] }
+"markup.quote" = { fg = "comment-grey" }
+"markup.raw" = { fg = "fg", bg = "string-bg", modifiers = ["italic"] }
+"markup.list" = { fg = "fg", modifiers = ["bold"] }
+"markup.list.checked" = { fg = "fg", modifiers = ["bold"] }
+"markup.list.unchecked" = { fg = "fg", modifiers = ["bold"] }

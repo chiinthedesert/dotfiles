@@ -1,0 +1,265 @@
+# Zenwritten for Helix — dark variant
+#
+# Based on chiinthedesert/zenbones.nvim:
+#   lua/zenwritten/palette.lua
+#   lua/zenbones/specs/dark.lua
+#   lua/zenbones/util.lua
+#
+# The grayscale values below are evaluated from the original Lush/HSLuv
+# expressions, including Lush's round-half-up behavior. The syntax mapping
+# follows the original Neovim Tree-sitter links where Helix exposes an
+# equivalent scope. Helix-only UI scopes are styled conservatively.
+#
+# Design: typography and contrast distinguish syntax; color is reserved for
+# diagnostics, search, diffs, and other semantic feedback.
+
+# ── Editor interface ──────────────────────────────────────────────────────
+"ui.background" = { fg = "fg", bg = "bg" }
+"ui.background.separator" = "line-number"
+"ui.text" = "fg"
+"ui.text.focus" = { fg = "fg", bg = "cursorline" }
+"ui.text.inactive" = "fg5"
+"ui.text.info" = { fg = "leaf", bg = "float", modifiers = ["bold"] }
+"ui.text.directory" = { fg = "fg", modifiers = ["bold"] }
+
+# The original Neovim Cursor uses foreground.lighten(20) over the background.
+"ui.cursor" = { fg = "bg", bg = "cursor" }
+"ui.cursor.normal" = { fg = "bg", bg = "cursor" }
+"ui.cursor.insert" = { fg = "bg", bg = "cursor" }
+"ui.cursor.select" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "cursor" }
+"ui.cursor.match" = { fg = "fg", bg = "search" }
+
+# Visual selection, search matches, and current cursor lines.
+"ui.selection" = { bg = "visual" }
+"ui.selection.primary" = { bg = "visual" }
+"ui.highlight" = { fg = "fg", bg = "search" }
+"ui.highlight.frameline" = { fg = "fg", bg = "cursorline" }
+"ui.cursorline.primary" = { bg = "cursorline" }
+"ui.cursorline.secondary" = { bg = "cursorline" }
+"ui.cursorcolumn.primary" = { bg = "cursorline" }
+"ui.cursorcolumn.secondary" = { bg = "cursorline" }
+
+"ui.gutter" = { bg = "bg" }
+"ui.gutter.selected" = { bg = "cursorline" }
+"ui.linenr" = "line-number"
+"ui.linenr.selected" = { fg = "fg", modifiers = ["bold"] }
+"ui.window" = "line-number"
+
+# Neovim StatusLine / StatusLineNC and TabLine equivalents.
+"ui.statusline" = { fg = "fg", bg = "statusline" }
+"ui.statusline.inactive" = { fg = "statusline-inactive-fg", bg = "statusline-inactive" }
+"ui.statusline.normal" = { fg = "fg", bg = "statusline" }
+"ui.statusline.insert" = { fg = "fg", bg = "statusline" }
+"ui.statusline.select" = { fg = "fg", bg = "statusline" }
+"ui.statusline.separator" = "line-number"
+"ui.bufferline" = { fg = "fg", bg = "statusline" }
+"ui.bufferline.background" = { fg = "statusline-inactive-fg", bg = "statusline-inactive" }
+"ui.bufferline.active" = { fg = "fg", bg = "statusline", modifiers = ["bold"] }
+
+# NormalFloat, FloatBorder, and Pmenu equivalents.
+"ui.popup" = { fg = "fg", bg = "float" }
+"ui.popup.info" = { fg = "leaf", bg = "float", modifiers = ["bold"] }
+"ui.help" = { fg = "fg", bg = "float" }
+"ui.menu" = { fg = "fg", bg = "float" }
+"ui.menu.selected" = { fg = "fg", bg = "menu-selected" }
+"ui.menu.scroll" = { fg = "menu-thumb", bg = "menu-scroll" }
+"ui.picker.header" = { fg = "fg", bg = "statusline" }
+"ui.picker.header.column" = { fg = "fg", bg = "statusline" }
+"ui.picker.header.column.active" = { fg = "fg", bg = "statusline", modifiers = ["bold"] }
+
+# Non-text, inlay hints, indentation, rulers, and jump labels.
+"ui.virtual.whitespace" = "non-text"
+"ui.virtual.indent-guide" = "indent-guide"
+"ui.virtual.ruler" = { bg = "colorcolumn" }
+"ui.virtual.wrap" = "non-text"
+"ui.virtual.inlay-hint" = { fg = "inlay-hint", bg = "inlay-hint-bg" }
+"ui.virtual.inlay-hint.parameter" = { fg = "inlay-hint", bg = "inlay-hint-bg" }
+"ui.virtual.inlay-hint.type" = { fg = "inlay-hint", bg = "inlay-hint-bg" }
+"ui.virtual.jump-label" = { fg = "blossom", modifiers = ["bold"], underline = { style = "line", color = "blossom" } }
+
+"ui.debug.breakpoint" = "rose"
+"ui.debug.active" = { fg = "fg", bg = "cursorline", modifiers = ["bold"] }
+
+# ── Diagnostics ───────────────────────────────────────────────────────────
+# The Neovim theme uses these accent colors for diagnostic signs and text,
+# with undercurl diagnostics. The faint backgrounds mirror its virtual text.
+"error" = "rose"
+"warning" = "wood"
+"info" = "water"
+"hint" = "blossom"
+"diagnostic.error" = { fg = "rose", bg = "diag-error-bg", underline = { color = "rose", style = "curl" } }
+"diagnostic.warning" = { fg = "wood", bg = "diag-warning-bg", underline = { color = "wood", style = "curl" } }
+"diagnostic.info" = { fg = "water", bg = "diag-info-bg", underline = { color = "water", style = "curl" } }
+"diagnostic.hint" = { fg = "blossom", bg = "diag-hint-bg", underline = { color = "blossom", style = "curl" } }
+"diagnostic.unnecessary" = "wood"
+"diagnostic.deprecated" = "wood"
+
+# ── Syntax highlighting ───────────────────────────────────────────────────
+# Comments are muted and italic; strings/constants italic; statements and
+# special tokens bold. Variables/functions/types remain neutral.
+"attribute" = { fg = "fg", modifiers = ["bold"] }
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"comment.line" = { fg = "comment", modifiers = ["italic"] }
+"comment.line.documentation" = { fg = "comment", modifiers = ["italic"] }
+"comment.block" = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "comment", modifiers = ["italic"] }
+"comment.unused" = { fg = "fg5", modifiers = ["dim"] }
+
+# Tree-sitter @constant maps to Identifier + bold; builtin constants map to
+# Constant + italic. Numeric literals map to Number (same gray, no italic).
+"constant" = { fg = "identifier", modifiers = ["bold"] }
+"constant.builtin" = { fg = "constant", modifiers = ["italic"] }
+"constant.builtin.boolean" = { fg = "fg", modifiers = ["italic"] }
+"constant.character" = { fg = "constant", modifiers = ["italic"] }
+"constant.escape" = { fg = "special", modifiers = ["bold"] }
+"constant.numeric" = "constant"
+"constant.numeric.integer" = "constant"
+"constant.numeric.float" = "constant"
+
+"string" = { fg = "constant", modifiers = ["italic"] }
+"string.regexp" = { fg = "constant", modifiers = ["italic"] }
+"string.special" = { fg = "special", modifiers = ["bold"] }
+"string.special.path" = { fg = "special", modifiers = ["bold"] }
+"string.special.url" = { fg = "special", modifiers = ["bold"] }
+"string.special.symbol" = "identifier"
+
+"variable" = "identifier"
+"variable.builtin" = { fg = "constant", modifiers = ["italic"] }
+"variable.parameter" = "identifier"
+"variable.other.member" = "identifier"
+"variable.other.member.private" = "identifier"
+"label" = { fg = "fg", modifiers = ["bold"] }
+
+"function" = "fg"
+"function.builtin" = { fg = "special", modifiers = ["bold"] }
+"function.method" = "fg"
+"function.method.private" = "fg"
+"function.macro" = { fg = "fg", modifiers = ["bold"] }
+"function.special" = { fg = "fg", modifiers = ["bold"] }
+"constructor" = { fg = "special", modifiers = ["bold"] }
+"namespace" = { fg = "constant", modifiers = ["italic"] }
+
+"keyword" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control.conditional" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control.import" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control.return" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control.exception" = { fg = "fg", modifiers = ["bold"] }
+"keyword.function" = { fg = "fg", modifiers = ["bold"] }
+"keyword.operator" = { fg = "fg", modifiers = ["bold"] }
+"keyword.directive" = { fg = "fg", modifiers = ["bold"] }
+"keyword.storage" = "type-color"
+"keyword.storage.type" = "type-color"
+"keyword.storage.modifier" = "type-color"
+"operator" = { fg = "fg", modifiers = ["bold"] }
+"type" = "type-color"
+"type.builtin" = "type-color"
+"type.parameter" = "type-color"
+"type.enum" = "type-color"
+"type.enum.variant" = "type-color"
+"special" = { fg = "special", modifiers = ["bold"] }
+"tag" = { fg = "special", modifiers = ["bold"] }
+"tag.builtin" = { fg = "special", modifiers = ["bold"] }
+"punctuation" = "delimiter"
+"punctuation.delimiter" = "delimiter"
+"punctuation.bracket" = "delimiter"
+"punctuation.special" = "delimiter"
+
+# ── Markup ─────────────────────────────────────────────────────────────────
+"markup.heading" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.1" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.5" = { fg = "fg", modifiers = ["bold"] }
+"markup.heading.6" = { fg = "fg", modifiers = ["bold"] }
+"markup.list" = { fg = "special", modifiers = ["bold"] }
+"markup.list.unnumbered" = { fg = "special", modifiers = ["bold"] }
+"markup.list.numbered" = { fg = "special", modifiers = ["bold"] }
+"markup.list.checked" = { fg = "special", modifiers = ["bold"] }
+"markup.list.unchecked" = { fg = "special", modifiers = ["bold"] }
+"markup.bold" = { fg = "fg", modifiers = ["bold"] }
+"markup.italic" = { fg = "fg", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "fg", modifiers = ["crossed_out"] }
+"markup.link" = { fg = "constant", modifiers = ["italic"] }
+"markup.link.url" = { fg = "constant", modifiers = ["italic"] }
+"markup.link.label" = { fg = "special", modifiers = ["bold"] }
+"markup.link.text" = { fg = "identifier", underline = { style = "line", color = "identifier" } }
+"markup.quote" = "fg4"
+"markup.raw" = { fg = "constant", modifiers = ["italic"] }
+"markup.raw.inline" = { fg = "constant", modifiers = ["italic"] }
+"markup.raw.block" = { fg = "constant", modifiers = ["italic"] }
+
+# ── Diff ───────────────────────────────────────────────────────────────────
+# Neovim DiffAdd / DiffChange / DiffDelete are tinted backgrounds. The gutter
+# markers use the corresponding semantic accent colors.
+"diff.plus" = { bg = "diff-add" }
+"diff.plus.gutter" = "leaf"
+"diff.minus" = { bg = "diff-delete" }
+"diff.minus.gutter" = "rose"
+"diff.delta" = { bg = "diff-change" }
+"diff.delta.gutter" = "water"
+"diff.delta.moved" = { bg = "diff-change" }
+
+[palette]
+# Zenwritten's own achromatic dark palette: HSLuv(0, 0, 9) / HSLuv(0, 0, 76).
+bg = "#191919"
+fg = "#BBBBBB"
+cursor = "#C9C9C9"
+
+# Exact grayscale levels from specs/dark.lua and Lush's HSLuv rounding.
+fg1 = "#A6A6A6"
+fg2 = "#9E9E9E"
+fg3 = "#939393"
+fg4 = "#8B8B8B"
+fg5 = "#7F7F7F"
+fg6 = "#686868"
+comment = "#686868"
+constant = "#8B8B8B"
+identifier = "#9E9E9E"
+type-color = "#969696"
+special = "#939393"
+delimiter = "#7C7C7C"
+line-number = "#616161"
+non-text = "#555555"
+
+# Interface tones from the original dark spec.
+cursorline = "#222222"
+visual = "#404040"
+colorcolumn = "#55392C"
+float = "#2C2C2C"
+statusline = "#303030"
+statusline-inactive = "#242424"
+statusline-inactive-fg = "#CFCFCF"
+menu-selected = "#444444"
+menu-scroll = "#595959"
+menu-thumb = "#848484"
+search = "#65435E"
+incsearch = "#BF8FB5"
+inlay-hint = "#7A6569"
+inlay-hint-bg = "#222222"
+indent-guide = "#181818"
+
+# Semantic accent palette from util.palette_extend().
+rose = "#DE6E7C"
+leaf = "#819B69"
+wood = "#B77E64"
+water = "#6099C0"
+blossom = "#B279A7"
+sky = "#66A5AD"
+
+# Exact HSLuv diff fills from specs/dark.lua.
+diff-add = "#232D1A"
+diff-change = "#1D2C36"
+diff-delete = "#3E2225"
+
+# Faint DiagnosticVirtualText backgrounds from specs/dark.lua.
+diag-error-bg = "#272020"
+diag-warning-bg = "#242120"
+diag-info-bg = "#202223"
+diag-hint-bg = "#252024"

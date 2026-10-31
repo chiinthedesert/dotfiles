@@ -1,18 +1,8 @@
-return {
-  "sontungexpt/vietnamese.nvim",
-  dependencies = {
-    "sontungexpt/bim.nvim",
-  },
-  event = "InsertEnter",
-  opts = {
+vim.pack.add({
+    "https://github.com/sontungexpt/vietnamese.nvim",
+})
+
+require("vietnamese").setup({
     enabled = false,
-  },
-  keys = {
-    {
-      "<leader>tv",
-      "<cmd>VietnameseToggle<CR>",
-      mode = "n",
-      desc = "toggle vietnamese",
-    },
-  },
-}
+})
+vim.keymap.set("n", "<leader>vt", "<CMD>VietnameseToggle<CR>", { desc = "toggle vietnamese" })
