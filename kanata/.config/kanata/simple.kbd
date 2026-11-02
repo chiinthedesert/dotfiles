@@ -1,4 +1,5 @@
 (defcfg
+  linux-dev-names-include ("AT Translated Set 2 keyboard")
   process-unmapped-keys yes
   concurrent-tap-hold yes
   danger-enable-cmd yes
@@ -123,7 +124,8 @@
 
 ;; Print Screen chord
 (defchordsv2
-  (i o) prtsc 75 first-release ()
+  ([ ]) prtsc 75 first-release ()
+  (i o) ret 75 first-release ()
 )
 
 ;; Main layer
