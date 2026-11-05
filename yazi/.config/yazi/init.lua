@@ -10,13 +10,6 @@ require("git"):setup({
   order = 1500,
 })
 
--- ~/.config/yazi/init.lua
-require("my-relative-motions"):setup({
-  show_numbers = "relative_absolute",
-  show_motion = true,
-  enter_mode = "first",
-})
-
 require("yamb"):setup({
   -- Optional, the path ending with path seperator represents folder.
   bookmarks = bookmarks,
