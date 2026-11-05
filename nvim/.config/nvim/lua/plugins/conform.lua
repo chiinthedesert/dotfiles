@@ -14,6 +14,7 @@ require("conform").setup({
         c = { "clang-format" },
         sh = { "shfmt" },
         bash = { "shfmt" },
+        kdl = { "kdlfmt" },
     },
     -- Set default options
     default_format_opts = {

@@ -25,6 +25,17 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+vim.lsp.config("tombi", {
+    settings = {
+        schemas = {
+            {
+                path = vim.fn.expand("~/.config/umbriel/schema.json"),
+                include = { "**/umbriel/**/*.toml" },
+            },
+        },
+    },
+})
+
 local vue_plugin_path = vim.fn.stdpath("data")
     .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 vim.lsp.config("vtsls", {
@@ -50,4 +61,5 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("ty")
 vim.lsp.enable("ruff")
 vim.lsp.enable("clangd")
+vim.lsp.enable("tombi")
 vim.lsp.enable({ "vue_ls", "tailwindcss", "vtsls", "cssls", "html" })
