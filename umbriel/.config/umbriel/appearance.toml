@@ -12,7 +12,14 @@ drag_opacity = 0.75
 opaque_fullscreen = true
 
 [appearance.blur]
+enabled = true
+optimized = true
+passes = 2
 radius = 3
+noise = 0.02
+brightness = 0.9
+contrast = 0.9
+saturation = 1.1
 
 # Optional title bar with modifier-free dragging and floating frame resizing.
 # [appearance.title_bar]

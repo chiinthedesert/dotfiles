@@ -9,3 +9,5 @@ XCURSOR_SIZE = "32"
 
 ELECTRON_OZONE_PLATFORM_HINT = "auto"
 SDL_VIDEODRIVER = "wayland"
+
+KANATA_TRAY_LOG_DIR = "/home/chi/.cache/kanata-tray"
