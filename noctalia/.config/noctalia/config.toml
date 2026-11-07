@@ -4,20 +4,20 @@ config_version = 16
 ui_scale = 1.1500000096857548
 
 [bar]
-order = [ "left" ]
+order = ["left"]
 
-    [bar.left]
-    background_opacity = 0.8399999812245369
-    capsule_radius = 2
-    end = [ "tray", "notifications", "clipboard", "network", "bluetooth", "battery", "session" ]
-    font_family = "Inter"
-    margin_ends = 0
-    position = "left"
-    radius = 0
-    scale = 1.1500000096857548
-    shadow = false
-    start = [ "workspaces" ]
-    widget_spacing = 16
+[bar.left]
+background_opacity = 0.88999998010694981
+end = ["tray", "notifications", "clipboard", "network", "bluetooth", "cpu", "battery", "session"]
+font_family = "Inter"
+margin_ends = 0
+position = "left"
+radius = 0
+scale = 1.1500000096857548
+shadow = false
+start = ["workspaces"]
+widget_spacing = 16
+capsule_radius = 2
 
 [brightness]
 enable_ddcutil = true
@@ -26,105 +26,108 @@ sync_all_monitors = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@HDMI-A-1" ]
+widget_order = ["lockscreen-login-box@eDP-1", "lockscreen-login-box@HDMI-A-1"]
 
-    [lockscreen_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 960.0
-    cy = 898.0
-    output = "HDMI-A-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+box_height = 196.0
+box_width = 810.0
+cx = 960.0
+cy = 898.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "surface_container"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_password_reveal = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+background_color = "surface_container"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_password_reveal = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 768.0
-    cy = 682.0
-    output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 196.0
+box_width = 810.0
+cx = 768.0
+cy = 682.0
+output = "eDP-1"
+placement_height = 864.0
+placement_width = 1536.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_container"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_password_reveal = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_container"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_password_reveal = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
+
+[plugins]
+enabled = []
 
 [shell]
 corner_radius_scale = 0.0
 font_family = "Inter"
 
-    [shell.animation]
-    enabled = false
+[shell.animation]
+enabled = false
 
-    [shell.launcher]
-    categories = false
-    layout = "simple"
-    show_icons = false
+[shell.launcher]
+categories = false
+layout = "simple"
+show_icons = false
 
-    [shell.screenshot]
-    region_border_width = 0.5
+[shell.screenshot]
+directory = "/home/chi/Pictures/Screenshots"
+region_border_width = 0.5
 
 [theme]
-custom_palette = "all-about-lily-chou-chou-3-rb"
 source = "wallpaper"
 
-    [theme.templates]
-    builtin_ids = [ "niri" ]
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4", "umbriel"]
 
 [wallpaper]
 transition = []
 
-    [wallpaper.default]
-    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+[wallpaper.default]
+path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
 
-    [wallpaper.last]
-    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+[wallpaper.last]
+path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
 
-    [wallpaper.monitors.HDMI-A-1]
-    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+[wallpaper.monitors.HDMI-A-1]
+path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
 
-    [wallpaper.monitors.eDP-1]
-    path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
+[wallpaper.monitors.eDP-1]
+path = "/home/chi/Pictures/Wallpapers/frieren-sleep.png"
 
 [widget.battery]
 capsule_fill = "primary"
@@ -132,8 +135,14 @@ capsule_fill = "primary"
 [widget.clock]
 font_weight = 700
 
+[widget.cpu]
+show_value = false
+
 [widget.network]
 show_label = false
+
+[widget.tray]
+drawer = true
 
 [widget.workspaces]
 active_pill_size = 1.75

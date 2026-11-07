@@ -25,17 +25,6 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.config("tombi", {
-    settings = {
-        schemas = {
-            {
-                path = vim.fn.expand("~/.config/umbriel/schema.json"),
-                include = { "**/umbriel/**/*.toml" },
-            },
-        },
-    },
-})
-
 local vue_plugin_path = vim.fn.stdpath("data")
     .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 vim.lsp.config("vtsls", {

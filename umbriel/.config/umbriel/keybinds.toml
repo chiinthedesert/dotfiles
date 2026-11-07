@@ -15,6 +15,12 @@
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
 
+# Screenshots (Noctalia)
+"Print" = { action = "spawn noctalia msg screenshot-region", repeat = false }
+"Mod+Print" = { action = "spawn noctalia msg screenshot-window", repeat = false }
+"Shift+Print" = { action = "spawn noctalia msg screenshot-region --annotate", repeat = false }
+"Mod+Shift+Print" = { action = "spawn noctalia msg screenshot-annotate", repeat = false }
+
 # Media, volume and brightness keys from any input device, routed through the
 # Noctalia shell so its OSDs show. Safe while the session is locked.
 # https://docs.noctalia.dev/noctalia/compositor-settings/umbriel
