@@ -107,6 +107,8 @@ show_icons = false
 [shell.screenshot]
 directory = "/home/chi/Pictures/Screenshots"
 region_border_width = 0.5
+confirm_region = true
+show_region_hint = true
 
 [theme]
 source = "wallpaper"
