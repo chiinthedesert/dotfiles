@@ -13,5 +13,5 @@ focus_at_startup = true
 [output.eDP-1]
 mode = "1920x1080@60.049"
 position = [1920, 0]
-scale = 1.25
+scale = 1
 workspaces = ["1", "2", "3", "4", "5"]

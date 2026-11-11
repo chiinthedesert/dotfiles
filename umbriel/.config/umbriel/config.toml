@@ -27,7 +27,7 @@ files = [
 # https://docs.noctalia.dev/umbriel/configuration/#general
 #
 [general]
-autostart = ["noctalia", "kitty", "fcitx5 -d", "kanata-tray"]
+autostart = ["noctalia", "foot", "fcitx5 -d", "kanata-tray"]
 mod_key = "Super"
 xwayland = true
 xwayland_native_resolution = false

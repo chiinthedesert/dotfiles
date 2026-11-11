@@ -31,6 +31,10 @@ default_position = { x = 0, y = 0, anchor = "bottom_right" }
 default_focused = false
 default_pinned = true
 
+[[window_rule]]
+match.app_id = "^foot$"
+default_scrolling_extent = 0.667
+
 # Keep game menus inside their window; a focus or workspace keybind releases the pointer.
 # [[window_rule]]
 # match.app_id = "^steam_app_.*$"

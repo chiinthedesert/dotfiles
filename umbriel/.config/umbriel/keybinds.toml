@@ -9,7 +9,7 @@
 "submap[move],Escape" = "submap reset"
 
 # Applications and session
-"Mod+Return" = { action = "spawn kitty", repeat = false }
+"Mod+Return" = { action = "spawn foot", repeat = false }
 "Mod+A" = "spawn noctalia msg panel-toggle launcher"
 "Mod+X" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
@@ -42,7 +42,6 @@
 "Mod+J" = "window-focus-down"
 "Mod+K" = "window-focus-up"
 "Mod+L" = "window-focus-right"
-"Mod+Tab" = "output-focus-next"
 
 "submap[move],H" = "column-move-left"
 "submap[move],J" = "window-move-down"
@@ -52,37 +51,7 @@
 "submap[move],Down" = "window-move-down"
 "submap[move],Up" = "window-move-up"
 "submap[move],Right" = "column-move-right"
-"submap[move],Shift+H" = "column-move-to-output-left"
-"submap[move],Shift+L" = "column-move-to-output-right"
 
-# Window state and layout
-"Mod+T" = { action = "window-toggle-floating", repeat = false }
-"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
-"Mod+P" = { action = "window-toggle-pinned", repeat = false }
-"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
-"submap[move],U" = "window-cycle-primary-extent"
-"submap[move],O" = "window-cycle-primary-extent-back"
-
-"submap[move],Minus" = "window-modify-primary-extent -0.05"
-"submap[move],Equal" = "window-modify-primary-extent +0.05"
-"submap[move],Ctrl+Minus" = "window-modify-secondary-extent -0.05"
-"submap[move],Ctrl+Equal" = "window-modify-secondary-extent +0.05"
-
-"submap[move],Comma" = "window-consume-or-expel-left"
-"submap[move],Period" = "window-consume-or-expel-right"
-"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
-"Mod+Shift+L" = "column-focus-tab-next"
-"Mod+Shift+H" = "column-focus-tab-previous"
-"Mod+Shift+Right" = "column-focus-tab-next"
-"Mod+Shift+Left" = "column-focus-tab-previous"
-"Mod+O" = { action = "overview-toggle", repeat = false }
-
-# Workspaces
-# Move the whole workspace, retaining its name, layout, and windows.
-"submap[move],Ctrl+H" = "workspace-move-to-output-left"
-"submap[move],Ctrl+L" = "workspace-move-to-output-right"
-"submap[move],Ctrl+Left" = "workspace-move-to-output-left"
-"submap[move],Ctrl+Right" = "workspace-move-to-output-right"
 "Mod+1" = "workspace-switch 1"
 "Mod+2" = "workspace-switch 2"
 "Mod+3" = "workspace-switch 3"
@@ -92,6 +61,7 @@
 "Mod+7" = "workspace-switch 7"
 "Mod+8" = "workspace-switch 8"
 "Mod+9" = "workspace-switch 9"
+
 "submap[move],1" = "column-move-to-workspace 1"
 "submap[move],2" = "column-move-to-workspace 2"
 "submap[move],3" = "column-move-to-workspace 3"
@@ -101,6 +71,37 @@
 "submap[move],7" = "column-move-to-workspace 7"
 "submap[move],8" = "column-move-to-workspace 8"
 "submap[move],9" = "column-move-to-workspace 9"
+
+"Mod+Tab" = "output-focus-next"
+"submap[move],Shift+H" = "column-move-to-output-left"
+"submap[move],Shift+L" = "column-move-to-output-right"
+"submap[move],Shift+Left" = "column-move-to-output-left"
+"submap[move],Shift+Right" = "column-move-to-output-right"
+"submap[move],Ctrl+H" = "workspace-move-to-output-left"
+"submap[move],Ctrl+L" = "workspace-move-to-output-right"
+"submap[move],Ctrl+Left" = "workspace-move-to-output-left"
+"submap[move],Ctrl+Right" = "workspace-move-to-output-right"
+
+"submap[move],Comma" = "window-consume-or-expel-left"
+"submap[move],Period" = "window-consume-or-expel-right"
+"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
+"Mod+N" = "column-focus-tab-next"
+"Mod+P" = "column-focus-tab-previous"
+
+# Window state and layout
+"Mod+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+Shift+P" = { action = "window-toggle-pinned", repeat = false }
+"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
+
+"submap[move],U" = "window-cycle-primary-extent"
+"submap[move],O" = "window-cycle-primary-extent-back"
+"submap[move],Minus" = "window-modify-primary-extent -0.05"
+"submap[move],Equal" = "window-modify-primary-extent +0.05"
+"submap[move],Ctrl+Minus" = "window-modify-secondary-extent -0.05"
+"submap[move],Ctrl+Equal" = "window-modify-secondary-extent +0.05"
+
+"Mod+O" = { action = "overview-toggle", repeat = false }
 
 # Scratchpad
 # "Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
